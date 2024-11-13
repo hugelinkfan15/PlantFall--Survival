@@ -20,6 +20,7 @@ public class Gun : Weapon
         {
             lastFired = Instantiate(bullet, transform.position, transform.rotation);
             lastFired.GetComponent<Rigidbody2D>().velocity = direction * bulletSpeed;
+   
         }
     }
 }

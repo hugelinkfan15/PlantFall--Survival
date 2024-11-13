@@ -16,14 +16,17 @@ public class TestEnemy : Enemy
     // Update is called once per frame
     new void Update()
     {
-       /* if(player.position.x - transform.position.x <0)
+        base.Update();
+
+       if(player.position.x - transform.position.x <0)
         {
             gameObject.GetComponent<SpriteRenderer>().flipX = true;
         }
         else
         {
             gameObject.GetComponent <SpriteRenderer>().flipX = false;
-        }*/
-        transform.position = Vector2.MoveTowards(transform.position, player.position, speed *Time.deltaTime);
+        }
+
+        transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
     }
 }
