@@ -235,8 +235,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c261c7f3869ce564b8d0509f19338e78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Enemy: {fileID: 4156205874225974989, guid: 8450bfb913f2f3c4486d7484b2880c77, type: 3}
+  wave: 0
   maxEnemies: 0
   playerLocation: {fileID: 0}
+  spawnRadius: 10
 --- !u!4 &840412621
 Transform:
   m_ObjectHideFlags: 0

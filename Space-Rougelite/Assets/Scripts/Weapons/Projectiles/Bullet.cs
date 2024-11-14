@@ -10,12 +10,18 @@ public class Bullet : MonoBehaviour
     //public Transform direction;
 
     private Rigidbody2D rb;
+    private float distanceTravelled;
+    private Vector3 prev;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
     }
 
+    private void Awake()
+    {
+        prev = transform.position;
+    }
     /// <summary>
     /// THIS SHOULD BE CALLED WHEN INSTATIATING A BULLET.
     /// </summary>
@@ -28,6 +34,15 @@ public class Bullet : MonoBehaviour
         damage = d;
         range = r;
         rb.velocity = dir * s;
+    }
+
+    private void Update()
+    {
+        distanceTravelled += Vector3.Distance(transform.position, prev);
+        if (distanceTravelled > range)
+        {
+            Destroy(gameObject);
+        }
     }
 
 
