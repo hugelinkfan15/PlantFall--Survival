@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.PlasticSCM.Editor.UI;
 using UnityEngine;
 
 public class Attack : MonoBehaviour
@@ -28,18 +27,18 @@ public class Attack : MonoBehaviour
         {
             if (auto)
             {
-                doAttack();
+                DoAttack();
                 cooldown = 0.0f;
             }
             else if (Input.GetKeyDown(KeyCode.Mouse0))
             {
-                doAttack();
+                DoAttack();
                 cooldown = 0.0f;
             }
         }
     }
 
-    private void doAttack()
+    private void DoAttack()
     {
         Debug.Log("attack");
     }
