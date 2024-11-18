@@ -2,6 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Keeps various stats of about the Bullet Object it is attached to.
+/// Also Deletes itself after touch a bullet or it reaches it's maxium range
+/// </summary>
 public class Bullet : MonoBehaviour
 {
     public float speed;
@@ -36,6 +40,9 @@ public class Bullet : MonoBehaviour
         rb.velocity = dir * s;
     }
 
+    /// <summary>
+    /// Keeps track of how far bullet has travelled, deletes it if it's reached it's maxium range
+    /// </summary>
     private void Update()
     {
         distanceTravelled += Vector3.Distance(transform.position, prev);
@@ -45,7 +52,10 @@ public class Bullet : MonoBehaviour
         }
     }
 
-
+    /// <summary>
+    /// Checks to see if it's collided with on enemy object
+    /// </summary>
+    /// <param name="collision"></param>
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.GetComponent<Enemy>() != null)

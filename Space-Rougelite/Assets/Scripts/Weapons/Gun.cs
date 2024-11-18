@@ -12,11 +12,12 @@ public class Gun : Weapon
 
     private Vector2 mousePosition;
     private Vector2 direction;
-    protected void Update()
+    protected new void Update()
     {
+        base.Update();
         mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         direction = (mousePosition - new Vector2(transform.position.x,transform.position.y)).normalized;
-        if(Input.GetKeyDown(KeyCode.Mouse0))
+        if(isChild && Input.GetKeyDown(KeyCode.Mouse0))
         {
             lastFired = Instantiate(bullet, transform.position, transform.rotation);
             lastFired.GetComponent<Rigidbody2D>().velocity = direction * bulletSpeed;

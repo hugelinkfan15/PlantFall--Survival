@@ -5,24 +5,46 @@ using Random = UnityEngine.Random;
 
 public class EnemySpawner : MonoBehaviour
 {
-    public GameObject Enemy;
     public int wave;
+    public float spawnCD;
+
+    public int currentEnemies;
     public int maxEnemies;
+
+
     public Transform playerLocation;
 
+    #region Singleton
+    public static EnemySpawner Instance;
+    private void Awake()
+    {
+        Instance = this;
+    }
+    #endregion
+
     [SerializeField] private int spawnRadius;
+    private float sincelastSpawn;
+    private Vector3 spawnSpot;
+
     // Start is called before the first frame update
     void Start()
     {
+        sincelastSpawn = 0.0f;
         playerLocation = GameObject.FindGameObjectWithTag("Player").transform; 
     }
 
     // Update is called once per frame
     void Update()
     {
+        sincelastSpawn += Time.deltaTime;
         //List<Enemy> currentWave = waveList[wave];
-        Vector3 spawnspot = new Vector3((playerLocation.position.x + Random.value * spawnRadius), (playerLocation.position.y + Random.value * spawnRadius));
-        Instantiate(Enemy/*currentWave[Random.Range(0, currentWave.Count)]*/, spawnspot,Quaternion.identity);
+        spawnSpot = new Vector3((playerLocation.position.x + Mathf.Cos(Random.Range(0f,Mathf.PI*2)) * spawnRadius), (playerLocation.position.y + Mathf.Sin(Random.Range(0f,Mathf.PI*2)) * spawnRadius));
+        if(currentEnemies < maxEnemies && sincelastSpawn>spawnCD)
+        {
+            sincelastSpawn = 0.0f;
+            ++currentEnemies;
+            ObjectPooler.Instance.SpawnFromPool(wave, spawnSpot,Quaternion.identity).gameObject.GetComponent<Enemy>().SetWave(wave);
+        }
     }
 
     

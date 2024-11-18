@@ -9,8 +9,9 @@ public class TestEnemy : Enemy
     {
         base.Start();
         health = 50f;
+        maxHealth = 50f;
         speed = 2f;
-        damage = 10f;
+        damage = 20f;
     }
 
     // Update is called once per frame
@@ -18,7 +19,9 @@ public class TestEnemy : Enemy
     {
         base.Update();
 
-       if(player.position.x - transform.position.x <0)
+        transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
+
+        if (player.position.x - transform.position.x <0)
         {
             gameObject.GetComponent<SpriteRenderer>().flipX = true;
         }
@@ -26,7 +29,5 @@ public class TestEnemy : Enemy
         {
             gameObject.GetComponent <SpriteRenderer>().flipX = false;
         }
-
-        transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
     }
 }

@@ -4,13 +4,18 @@ using UnityEngine;
 
 public abstract class Enemy : MonoBehaviour
 {
-    public float health;
+    public float maxHealth;
+    protected float health;
+
     public float speed;
     public float damage;
+
     public GameObject drop;
     protected Transform player;
+
+    protected int spawnWave;
     // Start is called before the first frame update
-    protected void Start()
+    public void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
     }
@@ -29,6 +34,11 @@ public abstract class Enemy : MonoBehaviour
         }
     }
 
+    public void SetWave(int w)
+    {
+        spawnWave = w;
+    }
+
     /// <summary>
     /// Drops the Enemy's respective Item
     /// </summary>
@@ -36,9 +46,21 @@ public abstract class Enemy : MonoBehaviour
     {
         Instantiate(drop,gameObject.transform);
     }
+
     public void Die()
     {
         //Drop();
-        Destroy(gameObject);
+        ObjectPooler.Instance.poolDictionary[spawnWave].Enqueue(gameObject);
+        -- EnemySpawner.Instance.currentEnemies;
+        gameObject.SetActive(false);
+        health = maxHealth;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.CompareTag("Player"))
+        {
+            collision.gameObject.GetComponent<PlayerHealth>().TakeDamage(damage);
+        }
     }
 }
