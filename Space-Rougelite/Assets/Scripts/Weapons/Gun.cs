@@ -12,8 +12,16 @@ public class Gun : Weapon
 
     private Vector2 mousePosition;
     private Vector2 direction;
+    /// <summary>
+    /// Tracks position of mouse to both turn and shoot in it's direction
+    /// </summary>
     protected new void Update()
     {
+        float h = Input.mousePosition.x - Screen.width / 2;
+        float v = Input.mousePosition.y - Screen.height / 2;
+        float angle = -Mathf.Atan2(v, h) * Mathf.Rad2Deg;
+
+        transform.rotation = Quaternion.Euler(0,0, -angle);
         base.Update();
         mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         direction = (mousePosition - new Vector2(transform.position.x,transform.position.y)).normalized;

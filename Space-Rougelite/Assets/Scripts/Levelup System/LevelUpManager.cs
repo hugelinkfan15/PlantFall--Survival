@@ -5,6 +5,7 @@ using UnityEngine.LowLevel;
 
 public class LevelUpManager : MonoBehaviour
 {
+    //All varibales set to public static for easy global access
     public static int playerLevel = 1;
     public static int exp = 0;
     public static int toNextLevel = 5;
@@ -28,10 +29,5 @@ public class LevelUpManager : MonoBehaviour
             toNextLevel = 10;
             Debug.Log("Level up!");
         }
-    }
-
-    public void ExpGot(int amount)
-    {
-        exp += amount;
     }
 }

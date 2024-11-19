@@ -39,7 +39,17 @@ public class ObjectPooler : MonoBehaviour
                 objectPool.Enqueue(obj);
             }
 
-            poolDictionary.Add(pool.wave, objectPool);
+            if (poolDictionary.ContainsKey(pool.wave))
+            {
+                foreach(GameObject o in objectPool)
+                {
+                    poolDictionary[pool.wave].Enqueue(o);
+                }
+            }
+            else
+            {
+                poolDictionary.Add(pool.wave, objectPool);
+            }
         }
 
     }

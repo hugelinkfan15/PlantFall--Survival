@@ -47,6 +47,9 @@ public abstract class Enemy : MonoBehaviour
         Instantiate(drop,gameObject.transform.position,Quaternion.identity);
     }
 
+    /// <summary>
+    /// Calls Drop function, then disables enemy, pushes them back into ObjectPool, and resets health
+    /// </summary>
     public void Die()
     {
         Drop();
@@ -56,6 +59,10 @@ public abstract class Enemy : MonoBehaviour
         health = maxHealth;
     }
 
+    /// <summary>
+    /// Inflicts damage when colliding with GameObject with a "Player" tag
+    /// </summary>
+    /// <param name="collision"></param>
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.CompareTag("Player"))
