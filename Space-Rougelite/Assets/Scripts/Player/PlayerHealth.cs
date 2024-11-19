@@ -40,4 +40,13 @@ public class PlayerHealth : MonoBehaviour
         gameObject.SetActive(false);
         GameManager.Instance.gameOver = true;
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)  
+    {
+        if (collision.gameObject.CompareTag("Exp"))
+        {
+            LevelUpManager.exp += collision.gameObject.GetComponent<ExpMover>().value;
+            Destroy(collision.gameObject);
+        }
+    }
 }

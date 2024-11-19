@@ -44,12 +44,12 @@ public abstract class Enemy : MonoBehaviour
     /// </summary>
     public void Drop()
     {
-        Instantiate(drop,gameObject.transform);
+        Instantiate(drop,gameObject.transform.position,Quaternion.identity);
     }
 
     public void Die()
     {
-        //Drop();
+        Drop();
         ObjectPooler.Instance.poolDictionary[spawnWave].Enqueue(gameObject);
         -- EnemySpawner.Instance.currentEnemies;
         gameObject.SetActive(false);
