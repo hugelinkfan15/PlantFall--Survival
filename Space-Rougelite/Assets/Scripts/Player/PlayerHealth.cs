@@ -9,7 +9,8 @@ using UnityEngine;
 public class PlayerHealth : MonoBehaviour
 {
     public float maxHealth;
-    private static float currentHealth;
+    public static float currentHealth;
+    public float healing;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +24,7 @@ public class PlayerHealth : MonoBehaviour
         {
             Die();
         }
+
     }
 
     public void TakeDamage(float damage)

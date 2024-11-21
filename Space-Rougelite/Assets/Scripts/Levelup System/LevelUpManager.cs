@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.LowLevel;
 
@@ -10,6 +11,13 @@ public class LevelUpManager : MonoBehaviour
     public static int exp = 0;
     public static int toNextLevel = 5;
     public static int totalExp;
+
+    [SerializeField] private TextMeshProUGUI Option1;
+    [SerializeField] private TextMeshProUGUI Option2;
+    [SerializeField] private TextMeshProUGUI Option3;
+    //[SerializeField] private TextMeshProUGUI Option4;
+
+    public List<GameObject> options;
     
     public static int currentLevel;
     // Start is called before the first frame update

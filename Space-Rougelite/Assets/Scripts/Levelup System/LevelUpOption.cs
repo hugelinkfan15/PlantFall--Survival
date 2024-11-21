@@ -5,7 +5,9 @@ using UnityEngine;
 public class LevelUpOption : MonoBehaviour
 {
     public int levelRequired;
-    public GameObject Panel;
+
+    public string statAffected;
+    public bool isPercentage;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,4 +19,7 @@ public class LevelUpOption : MonoBehaviour
     {
         
     }
+
+
+
 }
