@@ -2016,10 +2016,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d885a4c4e6993bf4c84150acd0b1fd00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 0
-  attackSpeed: 1.5
-  attackArea: 0
+  damage: 10
+  attackSpeed: 0.2
   weapon: {fileID: 1679992099}
+  bulletSpeed: 15
+  range: 20
   auto: 0
 --- !u!114 &1939485366
 MonoBehaviour:
