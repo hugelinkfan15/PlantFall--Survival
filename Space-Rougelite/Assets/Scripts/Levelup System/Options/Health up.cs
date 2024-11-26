@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.XR;
 
-public interface LevelUpOption
+public class Healthup : LevelUpOption
 {
-    public void ChangeStat();
+    public void ChangeStat()
+    {
+
+    }
 }

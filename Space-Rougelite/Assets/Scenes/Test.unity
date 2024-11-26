@@ -712,7 +712,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 3
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1681,6 +1681,11 @@ Transform:
   m_Father: {fileID: 4414456}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1679992099 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4791272888851774194, guid: 810ee91da2f79dc4c9324641a7f44cf1, type: 3}
+  m_PrefabInstance: {fileID: 4791272888877139511}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1802782378
 GameObject:
   m_ObjectHideFlags: 0
@@ -1840,7 +1845,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1857316970}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.119, y: -0.09, z: 0}
+  m_LocalPosition: {x: -0.001, y: 0.032, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1882,7 +1887,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e5e1e89d4670d8468cd2365b921ab8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 15
+  speed: 5
 --- !u!212 &1939485361
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1924,7 +1929,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
+  m_Sprite: {fileID: -413243519, guid: 5c6c457accdb81f43bcfdde2ac4692d6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1986,7 +1991,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.013814032, y: 0.0518021}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -1997,7 +2002,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.95, y: 0.95}
+  m_Size: {x: 0.23167646, y: 0.44579208}
   m_EdgeRadius: 0
 --- !u!114 &1939485365
 MonoBehaviour:
@@ -2014,6 +2019,7 @@ MonoBehaviour:
   damage: 0
   attackSpeed: 1.5
   attackArea: 0
+  weapon: {fileID: 1679992099}
   auto: 0
 --- !u!114 &1939485366
 MonoBehaviour:
@@ -2145,9 +2151,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.016804218, y: 0.19325054}
   serializedVersion: 2
-  m_Radius: 4
+  m_Radius: 1.4205278
 --- !u!114 &2057102436
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2176,6 +2182,14 @@ PrefabInstance:
     - target: {fileID: 4791272888851774205, guid: 810ee91da2f79dc4c9324641a7f44cf1, type: 3}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4791272888851774205, guid: 810ee91da2f79dc4c9324641a7f44cf1, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4791272888851774205, guid: 810ee91da2f79dc4c9324641a7f44cf1, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4791272888851774205, guid: 810ee91da2f79dc4c9324641a7f44cf1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2217,6 +2231,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4791272888851774206, guid: 810ee91da2f79dc4c9324641a7f44cf1, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -934542454, guid: f1f9ed2d3a0a62144868943bb4402b3c, type: 3}
     - target: {fileID: 4791272888851774207, guid: 810ee91da2f79dc4c9324641a7f44cf1, type: 3}
       propertyPath: weaponSlot
       value: 

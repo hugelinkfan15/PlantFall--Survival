@@ -15,11 +15,13 @@ public class PlayerHealth : MonoBehaviour
     void Start()
     {
         currentHealth = maxHealth;
+        PlayerStats.maxHealth = maxHealth;
     }
 
     // Update is called once per frame
     void Update()
     {
+        maxHealth = PlayerStats.maxHealth;
         if(currentHealth <= 0)
         {
             Die();

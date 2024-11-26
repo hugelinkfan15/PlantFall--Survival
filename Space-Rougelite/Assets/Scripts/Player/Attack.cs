@@ -6,9 +6,13 @@ public class Attack : MonoBehaviour
 {
     public float damage;
     public float attackSpeed;
-    public float attackArea;
 
     private float cooldown;
+
+    public GameObject weapon;
+
+    public float bulletSpeed;
+    public float range;
 
     public bool auto;
     // Start is called before the first frame update
@@ -16,6 +20,9 @@ public class Attack : MonoBehaviour
     {
         cooldown = attackSpeed;
         auto = false;
+        PlayerStats.bulletSpeed = bulletSpeed;
+        PlayerStats.range = range;
+        PlayerStats.attackSpeed = attackSpeed;
     }
 
     // Update is called once per frame
@@ -40,6 +47,7 @@ public class Attack : MonoBehaviour
 
     private void DoAttack()
     {
+        weapon.GetComponent<Gun>().Fire(damage, PlayerStats.range, PlayerStats.bulletSpeed);
         Debug.Log("attack");
     }
 }

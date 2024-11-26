@@ -14,10 +14,12 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        PlayerStats.speed = speed;
     }
     // Update is called once per frame
     void Update()
     {
+        speed = PlayerStats.speed;
         hInput = Input.GetAxis("Horizontal");
         vInput = Input.GetAxis("Vertical");
         if (transform.position.x < 0)
