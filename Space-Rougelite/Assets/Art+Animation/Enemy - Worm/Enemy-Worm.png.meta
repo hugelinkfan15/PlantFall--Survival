@@ -108,10 +108,10 @@ TextureImporter:
       name: Enemy-Worm_0
       rect:
         serializedVersion: 2
-        x: 5
+        x: 0
         y: 32
-        width: 22
-        height: 31
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -129,10 +129,10 @@ TextureImporter:
       name: Enemy-Worm_1
       rect:
         serializedVersion: 2
-        x: 37
+        x: 32
         y: 32
-        width: 22
-        height: 30
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -150,10 +150,10 @@ TextureImporter:
       name: Enemy-Worm_2
       rect:
         serializedVersion: 2
-        x: 5
+        x: 0
         y: 0
-        width: 22
-        height: 30
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
