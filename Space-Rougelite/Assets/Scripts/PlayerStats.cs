@@ -5,6 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "PlayerStats", menuName = "SO/Tracker/PlayerStats", order = 0)]
 public class PlayerStats : ScriptableObject
 {
+    //BASE VALUES
     public static float damage;
 
     public static float speed;
@@ -24,4 +25,18 @@ public class PlayerStats : ScriptableObject
     public static float bulletSpeed;
 
     public static float attackSpeed;
+
+    //PERCENTAGE MODIFIERS
+    public static float damageMult = 1.0f;
+
+    public static float speedMult = 1.0f;
+
+    public static float defenseMult = 1.0f;
+
+    public static float healthMult = 1.0f;
+
+    public static float rangeMult = 1.0f;
+
+    public static float bulletSpeedMult = 1.0f;
+
 }

@@ -14,6 +14,7 @@ public class PickUpItem : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        zone = GetComponent<CircleCollider2D>();
         PlayerStats.pickupRange = zone.radius;
     }
 

@@ -47,5 +47,14 @@ public class EnemySpawner : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Called by enemy after they have been off screen for a long period of time
+    /// </summary>
+    /// <param name="enemy"></param>
+    public void Respawn(GameObject enemy)
+    {
+        enemy.gameObject.transform.position = spawnSpot;
+    }
+
     
 }

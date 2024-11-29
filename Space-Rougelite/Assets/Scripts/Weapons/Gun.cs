@@ -11,7 +11,7 @@ public class Gun : Weapon
     private Vector2 mousePosition;
     private Vector2 direction;
 
-    protected void Update()
+    protected new void Update()
     {
         float h = Input.mousePosition.x - Screen.width / 2;
         float v = Input.mousePosition.y - Screen.height / 2;

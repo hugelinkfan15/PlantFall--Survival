@@ -70,4 +70,9 @@ public abstract class Enemy : MonoBehaviour
             collision.gameObject.GetComponent<PlayerHealth>().TakeDamage(damage);
         }
     }
+
+    private void OnBecameInvisible()
+    {
+        EnemySpawner.Instance.Respawn(gameObject);
+    }
 }
