@@ -11,7 +11,7 @@ public class TestEnemy : Enemy
         health = 50f;
         maxHealth = 50f;
         speed = 2f;
-        damage = 20f;
+        damage = 5f;
     }
 
     // Update is called once per frame

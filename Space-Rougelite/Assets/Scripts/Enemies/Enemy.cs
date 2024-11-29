@@ -13,11 +13,14 @@ public abstract class Enemy : MonoBehaviour
     public GameObject drop;
     protected Transform player;
 
+    private bool dead;
+
     protected int spawnWave;
     // Start is called before the first frame update
     public void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        dead = true;
     }
 
     public void TakeDamage(float damage)
@@ -28,6 +31,7 @@ public abstract class Enemy : MonoBehaviour
     // Update is called once per frame
     protected void Update()
     {
+        if (gameObject.activeSelf) { dead = false; }
         if (health <= 0)
         {
             Die();
@@ -53,10 +57,11 @@ public abstract class Enemy : MonoBehaviour
     public void Die()
     {
         Drop();
+        dead = true;
         ObjectPooler.Instance.poolDictionary[spawnWave].Enqueue(gameObject);
         -- EnemySpawner.Instance.currentEnemies;
-        gameObject.SetActive(false);
         health = maxHealth;
+        gameObject.SetActive(false);
     }
 
     /// <summary>
@@ -73,6 +78,28 @@ public abstract class Enemy : MonoBehaviour
 
     private void OnBecameInvisible()
     {
+        if (!dead)
+        {
+            StartCoroutine(RespawnOnScreen());
+        }
+    }
+
+    private void OnBecameVisible()
+    {
+        StopCoroutine(RespawnOnScreen());
+    }
+
+
+    /// <summary>
+    /// Respawns enemy closer to player if they've been offscreen for too long
+    /// </summary>
+    /// <returns></returns>
+    IEnumerator RespawnOnScreen()
+    {
+        yield return new WaitForSeconds(5.0f);
+
         EnemySpawner.Instance.Respawn(gameObject);
     }
+
+
 }

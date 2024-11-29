@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 
 /// <summary>
@@ -11,17 +12,23 @@ public class PlayerHealth : MonoBehaviour
     public float maxHealth;
     public static float currentHealth;
     public float healing;
+    public DisplayBar healthBar;
+
+    private bool isHealing;
+
     // Start is called before the first frame update
     void Start()
     {
         currentHealth = maxHealth;
         PlayerStats.maxHealth = maxHealth;
+        healthBar.SetMaxValue(maxHealth);
     }
 
     // Update is called once per frame
     void Update()
     {
         maxHealth = PlayerStats.maxHealth;
+
         if(currentHealth <= 0)
         {
             Die();
@@ -32,6 +39,11 @@ public class PlayerHealth : MonoBehaviour
     public void TakeDamage(float damage)
     {
         currentHealth -= damage;
+        healthBar.SetValue(currentHealth);
+        if (!isHealing)
+        {
+            StartCoroutine(Heal());
+        }
     }
 
     public static float GetHealth()
@@ -43,6 +55,24 @@ public class PlayerHealth : MonoBehaviour
     {
         gameObject.SetActive(false);
         GameManager.Instance.gameOver = true;
+    }
+
+    /// <summary>
+    /// Coroutine to heal the player every 1/10 of a second (healing is shown as per second though)
+    /// </summary>
+    /// <returns></returns>
+    IEnumerator  Heal()
+    {
+        isHealing = true;
+
+        while(currentHealth < maxHealth)
+        {
+            currentHealth += (healing/10);
+            healthBar.SetValue(currentHealth);
+            yield return new WaitForSeconds(0.1f);
+        }
+
+        isHealing=false;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)  
