@@ -16,10 +16,14 @@ public class LevelUpManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI Option2;
     [SerializeField] private TextMeshProUGUI Option3;
 
+    public LevelUpOption currentOption1;
+    public LevelUpOption currentOption2;
+    public LevelUpOption currentOption3;
+
     [SerializeField] private GameObject LevelupMenu;
     //[SerializeField] private TextMeshProUGUI Option4;
 
-    public List<GameObject> options;
+    public List<LevelUpOption> options;
     
     public static int currentLevel;
     // Start is called before the first frame update
@@ -39,11 +43,22 @@ public class LevelUpManager : MonoBehaviour
 
     public void LevelUp()
     {
+        for(int i = 0;i<3;i++)
+        {
+
+        }
         LevelupMenu.SetActive(true);
         totalExp += exp;
         exp -= toNextLevel;
         playerLevel++;
         toNextLevel = 10;
         Debug.Log("Level up!");
+    }
+
+    //For Buttons to use
+
+    public void Option1Pressed()
+    {
+        currentOption1.
     }
 }

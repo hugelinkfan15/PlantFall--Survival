@@ -22,13 +22,13 @@ public class PlayerMovement : MonoBehaviour
         speed = PlayerStats.speed;
         hInput = Input.GetAxis("Horizontal");
         vInput = Input.GetAxis("Vertical");
-        if (transform.position.x < 0)
+        if ((Input.mousePosition.x - Screen.width / 2) <0)
         {
-            gameObject.GetComponent<SpriteRenderer>().flipX = true;
+            gameObject.transform.rotation = Quaternion.Euler(0, 180, 0);
         }
         else
         {
-            gameObject.GetComponent<SpriteRenderer>().flipX = false;
+            gameObject.transform.rotation = Quaternion.identity;
         }
     }
 

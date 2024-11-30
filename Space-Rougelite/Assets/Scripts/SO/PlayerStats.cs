@@ -39,4 +39,6 @@ public class PlayerStats : ScriptableObject
 
     public static float bulletSpeedMult = 1.0f;
 
+    public static float attackSpeedMult = 1.0f;
+
 }

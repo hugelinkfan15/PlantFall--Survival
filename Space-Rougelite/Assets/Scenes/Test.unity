@@ -247,6 +247,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1438100533}
+        m_TargetAssemblyTypeName: UnityEngine.Transform, UnityEngine
+        m_MethodName: LookAt
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 936802429}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
@@ -3367,9 +3379,15 @@ MonoBehaviour:
   Option1: {fileID: 1022879415}
   Option2: {fileID: 1462689352}
   Option3: {fileID: 1802782380}
+  currentOption1: {fileID: 0}
+  currentOption2: {fileID: 0}
+  currentOption3: {fileID: 0}
   LevelupMenu: {fileID: 936802429}
   options:
-  - {fileID: 0}
+  - {fileID: 11400000, guid: f88dd0f5df3b5c34b8345fbdc3d1deca, type: 2}
+  - {fileID: 11400000, guid: 710f349b154cb0e4995073d648a24eb0, type: 2}
+  - {fileID: 11400000, guid: 0a69697f6b4f2ce44ba663df0082ed04, type: 2}
+  - {fileID: 11400000, guid: c7744c9b9b5107843ac8f604b4ff91ac, type: 2}
 --- !u!4 &1438100533
 Transform:
   m_ObjectHideFlags: 0
@@ -3834,7 +3852,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1857316971
 Transform:
   m_ObjectHideFlags: 0
@@ -4287,15 +4305,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4791272888851774205, guid: 810ee91da2f79dc4c9324641a7f44cf1, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4791272888851774205, guid: 810ee91da2f79dc4c9324641a7f44cf1, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4791272888851774205, guid: 810ee91da2f79dc4c9324641a7f44cf1, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4791272888851774205, guid: 810ee91da2f79dc4c9324641a7f44cf1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
