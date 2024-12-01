@@ -20,6 +20,7 @@ public class Attack : MonoBehaviour
     {
         cooldown = attackSpeed;
         auto = false;
+        PlayerStats.damage = damage;
         PlayerStats.bulletSpeed = bulletSpeed;
         PlayerStats.range = range;
         PlayerStats.attackSpeed = attackSpeed;
@@ -28,6 +29,11 @@ public class Attack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        damage = PlayerStats.damage * PlayerStats.damageMult;
+        bulletSpeed = PlayerStats.bulletSpeed * PlayerStats.bulletSpeedMult; 
+        attackSpeed = PlayerStats.attackSpeed * PlayerStats.attackSpeedMult;
+        range = PlayerStats.range * PlayerStats.rangeMult;
+
         cooldown += Time.deltaTime;
 
         if(attackSpeed < cooldown)

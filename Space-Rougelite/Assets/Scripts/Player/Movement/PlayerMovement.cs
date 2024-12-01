@@ -19,7 +19,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        speed = PlayerStats.speed;
+        speed = PlayerStats.speed * PlayerStats.speedMult;
         hInput = Input.GetAxis("Horizontal");
         vInput = Input.GetAxis("Vertical");
         if ((Input.mousePosition.x - Screen.width / 2) <0)

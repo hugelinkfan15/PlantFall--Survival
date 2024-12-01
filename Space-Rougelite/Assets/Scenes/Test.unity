@@ -247,13 +247,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1438100533}
-        m_TargetAssemblyTypeName: UnityEngine.Transform, UnityEngine
-        m_MethodName: LookAt
-        m_Mode: 2
+      - m_Target: {fileID: 1438100532}
+        m_TargetAssemblyTypeName: LevelUpManager, Assembly-CSharp
+        m_MethodName: Option1Pressed
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -354,7 +354,7 @@ MonoBehaviour:
   currentTime: 0
   countDown: 0
   hasLimit: 1
-  timerLimit: 60
+  timerLimit: 600
   hasFormat: 1
   format: 0
 --- !u!4 &75813160
@@ -2420,7 +2420,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a160d838ff8b4b4693ac20007e008c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_AssetsPPU: 80
+  m_AssetsPPU: 156
   m_RefResolutionX: 1280
   m_RefResolutionY: 720
   m_UpscaleRT: 0
@@ -2664,6 +2664,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1438100532}
+        m_TargetAssemblyTypeName: LevelUpManager, Assembly-CSharp
+        m_MethodName: Option2Pressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 936802429}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
@@ -2879,6 +2891,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1438100532}
+        m_TargetAssemblyTypeName: LevelUpManager, Assembly-CSharp
+        m_MethodName: Option3Pressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 936802429}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
@@ -3388,6 +3412,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 710f349b154cb0e4995073d648a24eb0, type: 2}
   - {fileID: 11400000, guid: 0a69697f6b4f2ce44ba663df0082ed04, type: 2}
   - {fileID: 11400000, guid: c7744c9b9b5107843ac8f604b4ff91ac, type: 2}
+  useable: []
+  emptyLevelUp: {fileID: 11400000, guid: 85ca2bf7ca54d304aba4e1dbb05f8800, type: 2}
 --- !u!4 &1438100533
 Transform:
   m_ObjectHideFlags: 0
@@ -4052,6 +4078,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   healing: 1
+  defense: 1
   healthBar: {fileID: 2096236746}
 --- !u!1 &1951974513
 GameObject:
@@ -4271,6 +4298,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1857316971}
     m_Modifications:
+    - target: {fileID: 4791272888851774192, guid: 810ee91da2f79dc4c9324641a7f44cf1, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4791272888851774192, guid: 810ee91da2f79dc4c9324641a7f44cf1, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4791272888851774194, guid: 810ee91da2f79dc4c9324641a7f44cf1, type: 3}
       propertyPath: m_Name
       value: Pistol

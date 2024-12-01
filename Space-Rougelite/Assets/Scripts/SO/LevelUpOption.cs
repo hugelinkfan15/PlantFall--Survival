@@ -15,15 +15,45 @@ public class LevelUpOption : ScriptableObject
 
     public string description;
 
-    public PlayerStats pS;
 
     private void Start()
     {
 
     }
-    public void GiveBonus(ref float targetStat)
+
+    /// <summary>
+    /// Compares SO's "stat" to cases in switch to adjust player stat
+    /// </summary>
+    public void GiveBonus()
     {
-        targetStat += multiplier;
+        switch (stat.ToLower())
+        {
+            case "damage":
+                PlayerStats.damageMult += multiplier;
+                break;
+            case "speed":
+                PlayerStats.speedMult += multiplier; 
+                break;
+            case "health":
+                PlayerStats.healthMult += multiplier;
+                break;
+            case "defense":
+                PlayerStats.defenseMult += multiplier;
+                break;
+            case "regen":
+                PlayerStats.regenMulti += multiplier;
+                break;
+            case "attack speed":
+                PlayerStats.attackSpeedMult += multiplier;
+                break;
+            case "bullet speed":
+                PlayerStats.bulletSpeedMult += multiplier;
+                break;
+            default:
+                break;
+        }
+
+        level++;
     }
 
 }

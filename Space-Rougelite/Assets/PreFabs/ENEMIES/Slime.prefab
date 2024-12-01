@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4347026802418500919}
   - component: {fileID: 6074592353613068965}
   m_Layer: 0
-  m_Name: Test Enemy
+  m_Name: Slime
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -49,7 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 50
   speed: 2
-  damage: 0
+  damage: 5
   drop: {fileID: 2081028040339549348, guid: 9671c5a54cd4ff74e8a8d79f99bb6350, type: 3}
 --- !u!50 &4156205874225974985
 Rigidbody2D:

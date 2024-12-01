@@ -12,6 +12,7 @@ public class PlayerHealth : MonoBehaviour
     public float maxHealth;
     public static float currentHealth;
     public float healing;
+    public float defense;
     public DisplayBar healthBar;
 
     private bool isHealing;
@@ -21,17 +22,28 @@ public class PlayerHealth : MonoBehaviour
     {
         currentHealth = maxHealth;
         PlayerStats.maxHealth = maxHealth;
+        PlayerStats.healthRegen = healing;
+        PlayerStats.defense = defense;
         healthBar.SetMaxValue(maxHealth);
     }
 
     // Update is called once per frame
     void Update()
     {
-        maxHealth = PlayerStats.maxHealth;
+        maxHealth = PlayerStats.maxHealth * PlayerStats.healthMult;
+        healing = PlayerStats.healthRegen * PlayerStats.regenMulti;
+        defense = PlayerStats.defense * PlayerStats.defenseMult;
+
+        healthBar.SetMaxValueOnly(maxHealth);
 
         if(currentHealth <= 0)
         {
             Die();
+        }
+
+        if(!isHealing && (currentHealth < maxHealth))
+        {
+            StartCoroutine(Heal());
         }
 
     }

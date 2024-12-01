@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TestEnemy : Enemy
+public class ContactDamage : Enemy
 {
     // Start is called before the first frame update
     protected new void Start()

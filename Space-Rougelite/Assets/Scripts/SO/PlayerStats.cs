@@ -41,4 +41,6 @@ public class PlayerStats : ScriptableObject
 
     public static float attackSpeedMult = 1.0f;
 
+    public static float regenMulti = 1.0f;
+
 }
