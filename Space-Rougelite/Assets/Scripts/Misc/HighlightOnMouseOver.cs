@@ -18,7 +18,7 @@ public class HighlightOnMouseOver : MonoBehaviour, IPointerEnterHandler, IPointe
     public void OnPointerEnter(PointerEventData eventData) {image.color = Color.yellow; }
     public void OnPointerExit(PointerEventData eventData) { image.color = startcolor; }
 
-    public void OnBecameInvisible()
+    public void OnBecameVisable()
     {
        image.color = startcolor;
     }

@@ -64,6 +64,11 @@ public class Timer : MonoBehaviour
     {
         return timerText.text;
     }
+
+    public long GetMinutes()
+    {
+        return minutes;
+    }
 }
 
 public enum TimerFormats

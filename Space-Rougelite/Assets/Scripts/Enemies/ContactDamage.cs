@@ -8,10 +8,6 @@ public class ContactDamage : Enemy
     protected new void Start()
     {
         base.Start();
-        health = 50f;
-        maxHealth = 50f;
-        speed = 2f;
-        damage = 5f;
     }
 
     // Update is called once per frame
@@ -20,14 +16,5 @@ public class ContactDamage : Enemy
         base.Update();
 
         transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
-
-        if (player.position.x - transform.position.x <0)
-        {
-            gameObject.GetComponent<SpriteRenderer>().flipX = true;
-        }
-        else
-        {
-            gameObject.GetComponent <SpriteRenderer>().flipX = false;
-        }
     }
 }

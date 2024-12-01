@@ -13,11 +13,11 @@ public class Bullet : MonoBehaviour
     public float range;
     //public Transform direction;
 
-    private Rigidbody2D rb;
+    protected Rigidbody2D rb;
     private float distanceTravelled;
     private Vector3 prev;
 
-    private void Start()
+    protected void Start()
     {
         rb = GetComponent<Rigidbody2D>();
     }
@@ -32,7 +32,7 @@ public class Bullet : MonoBehaviour
     /// <param name="s">Speed of the Bullet</param>
     /// <param name="d">Damage of the Bullet></param>
     /// <param name="r">Range Bullet with travel before Destroying itself</param>
-    public void SetBulletAtributes(float s, float d, float r, Vector2 dir)
+    public void SetBulletAtributes(float d, float r, float s, Vector2 dir)
     {
         speed = s;
         damage = d;
@@ -43,8 +43,10 @@ public class Bullet : MonoBehaviour
     /// <summary>
     /// Keeps track of how far bullet has travelled, deletes it if it's reached it's maxium range
     /// </summary>
-    private void Update()
+    protected void Update()
     {
+        damage = PlayerStats.damage * PlayerStats.damageMult;
+        range = PlayerStats.range * PlayerStats.rangeMult;
         distanceTravelled += Vector3.Distance(transform.position, prev);
         if (distanceTravelled > range)
         {

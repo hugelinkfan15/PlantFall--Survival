@@ -53,7 +53,7 @@ public class Attack : MonoBehaviour
 
     private void DoAttack()
     {
-        weapon.GetComponent<Gun>().Fire(damage, PlayerStats.range, PlayerStats.bulletSpeed);
+        weapon.GetComponent<Gun>().Fire(damage, range, bulletSpeed);
         Debug.Log("attack");
     }
 }

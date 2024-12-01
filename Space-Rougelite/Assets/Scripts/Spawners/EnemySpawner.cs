@@ -26,11 +26,14 @@ public class EnemySpawner : MonoBehaviour
     private float sincelastSpawn;
     private Vector3 spawnSpot;
 
+    public Timer timer;
+
     // Start is called before the first frame update
     void Start()
     {
         sincelastSpawn = 0.0f;
-        playerLocation = GameObject.FindGameObjectWithTag("Player").transform; 
+        playerLocation = GameObject.FindGameObjectWithTag("Player").transform;
+        StartCoroutine(WaveIncrease());
     }
 
     // Update is called once per frame
@@ -56,5 +59,24 @@ public class EnemySpawner : MonoBehaviour
         enemy.gameObject.transform.position = spawnSpot;
     }
 
+    IEnumerator WaveIncrease()
+    {
+        while (wave < 10)
+        {
+            yield return new WaitForSeconds(60f);
+
+            wave++;
+
+            if (wave % 2 == 0)
+            {
+                maxEnemies += 15;
+            }
+
+            if (wave % 3 == 0 && spawnCD > 0.0f)
+            {
+                spawnCD -= 0.2f;
+            }
+        }
+    }
     
 }

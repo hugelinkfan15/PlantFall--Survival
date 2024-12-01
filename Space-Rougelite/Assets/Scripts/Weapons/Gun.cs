@@ -29,14 +29,9 @@ public class Gun : Weapon
 
     public void Fire(float damage, float range, float speed)
     {
-        float h = Input.mousePosition.x - Screen.width / 2;
-        float v = Input.mousePosition.y - Screen.height / 2;
-        float angle = -Mathf.Atan2(v, h) * Mathf.Rad2Deg;
 
-        transform.rotation = Quaternion.Euler(0, 0, -angle);
         mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         direction = (mousePosition - new Vector2(transform.position.x, transform.position.y)).normalized;
-        Instantiate(bullet, transform.position, transform.rotation).gameObject.GetComponent<Rigidbody2D>().velocity = direction * PlayerStats.bulletSpeed;
-       //lastFired.GetComponent<Rigidbody2D>().velocity = direction * bulletSpeed;
+        Instantiate(bullet, transform.position, transform.rotation).gameObject.GetComponent<Rigidbody2D>().velocity = direction * PlayerStats.bulletSpeed * PlayerStats.bulletSpeedMult;
     }
 }

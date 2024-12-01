@@ -4062,7 +4062,7 @@ MonoBehaviour:
   attackSpeed: 0.2
   weapon: {fileID: 1679992099}
   bulletSpeed: 15
-  range: 20
+  range: 75
   auto: 0
 --- !u!114 &1939485366
 MonoBehaviour:
@@ -4114,6 +4114,12 @@ MonoBehaviour:
   - wave: 1
     prefab: {fileID: 4156205874225974989, guid: 8450bfb913f2f3c4486d7484b2880c77, type: 3}
     size: 15
+  - wave: 2
+    prefab: {fileID: 4156205874225974989, guid: 8450bfb913f2f3c4486d7484b2880c77, type: 3}
+    size: 15
+  - wave: 2
+    prefab: {fileID: 3002898421999226062, guid: 48426a2f336fd14488fe5f1636f20966, type: 3}
+    size: 10
 --- !u!4 &1951974515
 Transform:
   m_ObjectHideFlags: 0
@@ -4147,6 +4153,7 @@ MonoBehaviour:
   maxEnemies: 10
   playerLocation: {fileID: 1939485362}
   spawnRadius: 7
+  timer: {fileID: 75813159}
 --- !u!1 &2057102433
 GameObject:
   m_ObjectHideFlags: 0

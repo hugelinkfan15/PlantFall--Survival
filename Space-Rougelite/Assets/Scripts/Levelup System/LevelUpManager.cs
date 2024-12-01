@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -35,7 +36,23 @@ public class LevelUpManager : MonoBehaviour
     void Start()
     {
         useable = new List<LevelUpOption>(options);
+        foreach (LevelUpOption option in useable)
+        {
+            option.OnReset();
+        }
+    }
+
+    private void OnLevelWasLoaded(int level)
+    {
+        playerLevel = 1;
+        exp = 0;
+        toNextLevel = 5;
+        totalExp = 0;
         getOptions();
+        foreach (LevelUpOption option in useable)
+        {
+            option.OnReset();
+        }
     }
 
     // Update is called once per frame

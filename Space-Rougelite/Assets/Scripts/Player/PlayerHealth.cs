@@ -50,7 +50,7 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        currentHealth -= damage;
+        currentHealth -= (damage - defense);
         healthBar.SetValue(currentHealth);
         if (!isHealing)
         {

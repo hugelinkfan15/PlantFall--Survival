@@ -56,4 +56,9 @@ public class LevelUpOption : ScriptableObject
         level++;
     }
 
+    public void OnReset()
+    {
+        level = 0;
+    }
+
 }

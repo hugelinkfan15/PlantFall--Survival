@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Authentication.ExtendedProtection;
+using System.Security.Cryptography;
 using UnityEngine;
 
 public abstract class Enemy : MonoBehaviour
@@ -12,15 +14,17 @@ public abstract class Enemy : MonoBehaviour
 
     public GameObject drop;
     protected Transform player;
+   
+    [SerializeField] protected int spawnWave;
+    protected static float contactCD = 0.2f;
 
-    private bool dead;
-
-    protected int spawnWave;
+    protected float cooldown;
     // Start is called before the first frame update
     public void Start()
     {
+        health = maxHealth;
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
-        dead = true;
+        cooldown = contactCD;
     }
 
     public void TakeDamage(float damage)
@@ -31,10 +35,19 @@ public abstract class Enemy : MonoBehaviour
     // Update is called once per frame
     protected void Update()
     {
-        if (gameObject.activeSelf) { dead = false; }
+        cooldown += Time.deltaTime;
         if (health <= 0)
         {
             Die();
+        }
+
+        if (player.position.x - transform.position.x < 0)
+        {
+            gameObject.GetComponent<SpriteRenderer>().flipX = true;
+        }
+        else
+        {
+            gameObject.GetComponent<SpriteRenderer>().flipX = false;
         }
     }
 
@@ -57,10 +70,10 @@ public abstract class Enemy : MonoBehaviour
     public void Die()
     {
         Drop();
-        dead = true;
         ObjectPooler.Instance.poolDictionary[spawnWave].Enqueue(gameObject);
         -- EnemySpawner.Instance.currentEnemies;
         health = maxHealth;
+        StopAllCoroutines();
         gameObject.SetActive(false);
     }
 
@@ -68,7 +81,7 @@ public abstract class Enemy : MonoBehaviour
     /// Inflicts damage when colliding with GameObject with a "Player" tag
     /// </summary>
     /// <param name="collision"></param>
-    private void OnCollisionEnter2D(Collision2D collision)
+    protected void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.CompareTag("Player"))
         {
@@ -76,17 +89,26 @@ public abstract class Enemy : MonoBehaviour
         }
     }
 
-    private void OnBecameInvisible()
+    protected void OnCollisionStay2D(Collision2D collision)
     {
-        if (!dead)
+        if ( contactCD < cooldown && collision.gameObject.CompareTag("Player"))
+        {
+            collision.gameObject.GetComponent<PlayerHealth>().TakeDamage(damage);
+            cooldown = 0.0f;
+        }
+    }
+
+    protected void OnBecameInvisible()
+    {
+        if (gameObject.activeInHierarchy)
         {
             StartCoroutine(RespawnOnScreen());
         }
     }
 
-    private void OnBecameVisible()
+    protected void OnBecameVisible()
     {
-        StopCoroutine(RespawnOnScreen());
+        StopAllCoroutines();
     }
 
 
