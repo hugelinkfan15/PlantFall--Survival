@@ -3970,7 +3970,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_Sprite: {fileID: -413243519, guid: 5c6c457accdb81f43bcfdde2ac4692d6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -4373,6 +4373,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -934542454, guid: f1f9ed2d3a0a62144868943bb4402b3c, type: 3}
+    - target: {fileID: 4791272888851774206, guid: 810ee91da2f79dc4c9324641a7f44cf1, type: 3}
+      propertyPath: m_SortingOrder
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 4791272888851774207, guid: 810ee91da2f79dc4c9324641a7f44cf1, type: 3}
       propertyPath: weaponSlot
       value: 
