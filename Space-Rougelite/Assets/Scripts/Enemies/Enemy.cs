@@ -51,6 +51,10 @@ public abstract class Enemy : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Sets what wave the enemy is a part of for the object pool
+    /// </summary>
+    /// <param name="w"></param>
     public void SetWave(int w)
     {
         spawnWave = w;
@@ -86,9 +90,14 @@ public abstract class Enemy : MonoBehaviour
         if(collision.gameObject.CompareTag("Player"))
         {
             collision.gameObject.GetComponent<PlayerHealth>().TakeDamage(damage);
+            cooldown = 0.0f;
         }
     }
 
+    /// <summary>
+    /// Keeps damaging the player at a set interval as long as player is in contact with enemy-
+    /// </summary>
+    /// <param name="collision"></param>
     protected void OnCollisionStay2D(Collision2D collision)
     {
         if ( contactCD < cooldown && collision.gameObject.CompareTag("Player"))

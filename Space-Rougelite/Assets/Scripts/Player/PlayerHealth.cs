@@ -48,6 +48,10 @@ public class PlayerHealth : MonoBehaviour
 
     }
 
+    /// <summary>
+    /// Damage is dealt as damage-defense
+    /// </summary>
+    /// <param name="damage"></param>
     public void TakeDamage(float damage)
     {
         currentHealth -= (damage - defense);

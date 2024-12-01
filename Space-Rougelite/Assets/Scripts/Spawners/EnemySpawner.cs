@@ -59,6 +59,10 @@ public class EnemySpawner : MonoBehaviour
         enemy.gameObject.transform.position = spawnSpot;
     }
 
+    /// <summary>
+    /// Increase waves every minute, along with increasing maxEnemies every two and reducing spawn cooldoen every 3
+    /// </summary>
+    /// <returns></returns>
     IEnumerator WaveIncrease()
     {
         while (wave < 10)

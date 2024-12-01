@@ -27,6 +27,12 @@ public class Gun : Weapon
         }
     }
 
+    /// <summary>
+    /// Fires a projectile towards the position of the mouse. Paramaters currently serve no purpose
+    /// </summary>
+    /// <param name="damage"></param>
+    /// <param name="range"></param>
+    /// <param name="speed"></param>
     public void Fire(float damage, float range, float speed)
     {
 

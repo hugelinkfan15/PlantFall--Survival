@@ -64,6 +64,9 @@ public class LevelUpManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Activates the levelup menu, resets collected exp, increments total exp, and rasies exp needed for next level
+    /// </summary>
     public void LevelUp()
     {
         getOptions();
@@ -105,6 +108,9 @@ public class LevelUpManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Gets three unique randomly selcted upgrades from a list of valid upgrades. Will place a defuat options if not enough options are avaible
+    /// </summary>
     private void getOptions()
     {
         int[] usedInts = { -1, -1, -1 };
@@ -161,6 +167,9 @@ public class LevelUpManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Sets the text on all three options to that of the choosen levelups
+    /// </summary>
     private void SetOptionText()
     {
         Option1.text = currentOption1.description;

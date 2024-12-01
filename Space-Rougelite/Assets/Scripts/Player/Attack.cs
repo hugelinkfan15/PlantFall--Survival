@@ -51,6 +51,9 @@ public class Attack : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Calls Fire function from equipped weapon
+    /// </summary>
     private void DoAttack()
     {
         weapon.GetComponent<Gun>().Fire(damage, range, bulletSpeed);
