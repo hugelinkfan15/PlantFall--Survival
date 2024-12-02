@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: ArrowAnim
+  m_Name: SkullMan Bow Move Anim
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,16 +20,14 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: -619762956, guid: 7546027df1df95446907a58669bc2bcf, type: 3}
-    - time: 0.083333336
-      value: {fileID: -1913136616, guid: 7546027df1df95446907a58669bc2bcf, type: 3}
-    - time: 0.16666667
-      value: {fileID: 1025101374, guid: 7546027df1df95446907a58669bc2bcf, type: 3}
+      value: {fileID: -1682215590, guid: c75572bb9730be04a917085707aae9b5, type: 3}
+    - time: 0.125
+      value: {fileID: -651767429, guid: c75572bb9730be04a917085707aae9b5, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
     script: {fileID: 0}
-  m_SampleRate: 12
+  m_SampleRate: 8
   m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
@@ -44,9 +42,8 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: -619762956, guid: 7546027df1df95446907a58669bc2bcf, type: 3}
-    - {fileID: -1913136616, guid: 7546027df1df95446907a58669bc2bcf, type: 3}
-    - {fileID: 1025101374, guid: 7546027df1df95446907a58669bc2bcf, type: 3}
+    - {fileID: -1682215590, guid: c75572bb9730be04a917085707aae9b5, type: 3}
+    - {fileID: -651767429, guid: c75572bb9730be04a917085707aae9b5, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
