@@ -9,6 +9,8 @@ public class PlayerMovement : MonoBehaviour
     private float hInput;
     private float vInput;
 
+    public Animator animator;
+
     private Rigidbody2D rb;
     // Start is called before the first frame update
     private void Start()
@@ -28,12 +30,22 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
+            
             gameObject.transform.rotation = Quaternion.identity;
         }
     }
 
     void FixedUpdate()
     {
-        rb.velocity = new Vector2 (hInput*speed, vInput*speed);
+        rb.velocity = new Vector2 (hInput * speed, vInput * speed);
+        if(hInput >= 0.01 || vInput >= 0.01 || hInput <= -0.01f || vInput <= -0.01f)
+        {
+            animator.SetFloat("speed", 0.1f);
+        }
+        else
+        {
+            animator.SetFloat("speed", 0.0f);
+        }
+        
     }
 }

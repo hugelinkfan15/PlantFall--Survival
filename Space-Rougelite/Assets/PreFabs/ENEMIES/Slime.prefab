@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4156205874225974984}
   - component: {fileID: 4156205874225974990}
-  - component: {fileID: 4156205874225974985}
   - component: {fileID: 4347026802418500919}
   - component: {fileID: 6564282404700785679}
+  - component: {fileID: -378614129919493982}
   m_Layer: 0
   m_Name: Slime
   m_TagString: Untagged
@@ -52,28 +52,6 @@ MonoBehaviour:
   damage: 5
   drop: {fileID: 2081028040339549348, guid: 9671c5a54cd4ff74e8a8d79f99bb6350, type: 3}
   spawnWave: 0
-  cooldown: 0
---- !u!50 &4156205874225974985
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4156205874225974989}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 50
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 4
 --- !u!212 &4347026802418500919
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -114,7 +92,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -2081240449, guid: 47177c9c317960d4f9ae059e1e05e8be, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -142,3 +120,24 @@ CircleCollider2D:
   m_Offset: {x: 0, y: -0.12535626}
   serializedVersion: 2
   m_Radius: 0.21470648
+--- !u!95 &-378614129919493982
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4156205874225974989}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 847a2746cb4a84046ab2f189a0c091b4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
