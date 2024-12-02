@@ -101,7 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 10
   speed: 4.5
-  damage: 10
+  damage: 8
   drop: {fileID: 2081028040339549348, guid: 9671c5a54cd4ff74e8a8d79f99bb6350, type: 3}
   spawnWave: 1
 --- !u!70 &3002898421999226058
