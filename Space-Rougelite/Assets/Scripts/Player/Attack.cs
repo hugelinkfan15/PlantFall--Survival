@@ -56,7 +56,7 @@ public class Attack : MonoBehaviour
     /// </summary>
     private void DoAttack()
     {
-        weapon.GetComponent<Gun>().Fire(damage, range, bulletSpeed);
+        weapon.GetComponent<SingleFireGun>().Fire(damage, range, bulletSpeed);
         Debug.Log("attack");
     }
 }

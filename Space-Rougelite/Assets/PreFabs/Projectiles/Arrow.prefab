@@ -93,9 +93,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7520992285138304842}
-  - component: {fileID: 7520992285138304841}
   - component: {fileID: 7520992285138304843}
   - component: {fileID: 7520992285138304836}
+  - component: {fileID: 6376542994623662730}
   m_Layer: 0
   m_Name: Arrow
   m_TagString: Untagged
@@ -119,22 +119,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &7520992285138304841
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7520992285138304840}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.005796075, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.1271267
 --- !u!50 &7520992285138304843
 Rigidbody2D:
   serializedVersion: 4
@@ -171,3 +155,19 @@ MonoBehaviour:
   speed: 0
   damage: 20
   range: 0
+--- !u!70 &6376542994623662730
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7520992285138304840}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.1406121, y: 0.017824225}
+  m_Size: {x: 0.29100633, y: 0.13257463}
+  m_Direction: 1

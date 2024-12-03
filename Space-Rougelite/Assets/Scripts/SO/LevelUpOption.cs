@@ -49,6 +49,9 @@ public class LevelUpOption : ScriptableObject
             case "bullet speed":
                 PlayerStats.bulletSpeedMult += multiplier;
                 break;
+            case "range":
+                PlayerStats.rangeMult += multiplier;
+                break;
             default:
                 break;
         }

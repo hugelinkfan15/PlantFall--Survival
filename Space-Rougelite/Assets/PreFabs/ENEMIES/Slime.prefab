@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4156205874225974984}
-  - component: {fileID: 4156205874225974990}
   - component: {fileID: 4347026802418500919}
+  - component: {fileID: 4156205874225974990}
   - component: {fileID: 6564282404700785679}
   - component: {fileID: -378614129919493982}
   m_Layer: 0
@@ -35,23 +35,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4156205874225974990
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4156205874225974989}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 325e13d8f014c9440b67d82ce00110ee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 20
-  speed: 1
-  damage: 5
-  drop: {fileID: 2081028040339549348, guid: 9671c5a54cd4ff74e8a8d79f99bb6350, type: 3}
-  spawnWave: 0
 --- !u!212 &4347026802418500919
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -104,6 +87,23 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &4156205874225974990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4156205874225974989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 325e13d8f014c9440b67d82ce00110ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 20
+  speed: 1
+  damage: 5
+  drop: {fileID: 2081028040339549348, guid: 9671c5a54cd4ff74e8a8d79f99bb6350, type: 3}
+  spawnWave: 0
 --- !u!58 &6564282404700785679
 CircleCollider2D:
   m_ObjectHideFlags: 0

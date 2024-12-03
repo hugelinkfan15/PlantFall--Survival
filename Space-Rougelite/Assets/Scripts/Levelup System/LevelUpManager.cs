@@ -16,6 +16,7 @@ public class LevelUpManager : MonoBehaviour
     public static int toNextLevel = 5;
     public static int totalExp;
 
+    [Header("Option Text Boxes")]
     [SerializeField] private TextMeshProUGUI Option1;
     [SerializeField] private TextMeshProUGUI Option2;
     [SerializeField] private TextMeshProUGUI Option3;
@@ -24,41 +25,45 @@ public class LevelUpManager : MonoBehaviour
     public LevelUpOption currentOption2;
     public LevelUpOption currentOption3;
 
+    [Header("UI Elements")]
     [SerializeField] private GameObject LevelupMenu;
+    public DisplayBar expBar;
     //[SerializeField] private TextMeshProUGUI Option4;
 
+    [Header("List for Upgrade Choices")]
     public List<LevelUpOption> options;
-    public List<LevelUpOption> useable;
+    private List<LevelUpOption> useable;
+
+    [Header("Menu Selection for no Item")]
     [SerializeField] private LevelUpOption emptyLevelUp;
+
 
     public static int currentLevel;
     // Start is called before the first frame update
     void Start()
+    {
+    }
+    private void OnLevelWasLoaded()
     {
         useable = new List<LevelUpOption>(options);
         foreach (LevelUpOption option in useable)
         {
             option.OnReset();
         }
-    }
-
-    private void OnLevelWasLoaded(int level)
-    {
         playerLevel = 1;
-        exp = 0;
         toNextLevel = 5;
+        exp = 0;
         totalExp = 0;
         getOptions();
-        foreach (LevelUpOption option in useable)
-        {
-            option.OnReset();
-        }
+        ExpBarNext();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(exp == toNextLevel)
+        expBar.SetValue(exp);
+
+        if (!PauseMenu.isPaused && exp >= toNextLevel)
         {
             LevelUp();
         }
@@ -72,9 +77,9 @@ public class LevelUpManager : MonoBehaviour
         getOptions();
         LevelupMenu.SetActive(true);
         totalExp += exp;
-        exp -= toNextLevel;
+        exp-=toNextLevel;
         playerLevel++;
-        toNextLevel = 10;
+        toNextLevel += 5;
         SetOptionText();
         PauseMenu.Instance.pauseGame();
         Debug.Log("Level up!");
@@ -89,6 +94,7 @@ public class LevelUpManager : MonoBehaviour
         {
             useable.Remove(currentOption1);
         }
+        ExpBarNext();
     }
 
     public void Option2Pressed()
@@ -98,6 +104,7 @@ public class LevelUpManager : MonoBehaviour
         {
             useable.Remove(currentOption2);
         }
+        ExpBarNext();
     }
 
     public void Option3Pressed()
@@ -107,6 +114,13 @@ public class LevelUpManager : MonoBehaviour
         {
             useable.Remove(currentOption3);
         }
+        ExpBarNext();
+    }
+
+    public void ExpBarNext()
+    {
+        expBar.SetValue(exp);
+        expBar.SetMaxValueOnly(toNextLevel);
     }
 
     /// <summary>

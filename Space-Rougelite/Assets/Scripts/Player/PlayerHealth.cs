@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Transactions;
 using UnityEngine;
 
 /// <summary>
@@ -54,7 +55,14 @@ public class PlayerHealth : MonoBehaviour
     /// <param name="damage"></param>
     public void TakeDamage(float damage)
     {
-        currentHealth -= (damage - defense);
+        if (damage - defense < 1)
+        {
+            currentHealth -= 1;
+        }
+        else
+        {
+            currentHealth -= (damage - defense);
+        }
         healthBar.SetValue(currentHealth);
         if (!isHealing)
         {
