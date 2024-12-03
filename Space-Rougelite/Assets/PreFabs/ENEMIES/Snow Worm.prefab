@@ -101,10 +101,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 20
   speed: 1
-  damage: 2
+  damage: 5
   drop: {fileID: 2081028040339549348, guid: 9671c5a54cd4ff74e8a8d79f99bb6350, type: 3}
   spawnWave: 1
-  attackCD: 1
+  attackCD: 3
   projectileSpeed: 5
   projectile: {fileID: 1745735773408059516, guid: 49d04f036519f9043a7ce44d93ad3aa7, type: 3}
 --- !u!70 &2821599920801535272

@@ -64609,7 +64609,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e5e1e89d4670d8468cd2365b921ab8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
+  speed: 2.4
   animator: {fileID: 1939485367}
 --- !u!212 &1939485361
 SpriteRenderer:
@@ -64815,12 +64815,36 @@ MonoBehaviour:
   pools:
   - wave: 1
     prefab: {fileID: 4156205874225974989, guid: 8450bfb913f2f3c4486d7484b2880c77, type: 3}
-    size: 15
+    size: 20
   - wave: 2
     prefab: {fileID: 4156205874225974989, guid: 8450bfb913f2f3c4486d7484b2880c77, type: 3}
-    size: 15
+    size: 20
   - wave: 2
     prefab: {fileID: 3002898421999226062, guid: 48426a2f336fd14488fe5f1636f20966, type: 3}
+    size: 10
+  - wave: 3
+    prefab: {fileID: 3002898421999226062, guid: 48426a2f336fd14488fe5f1636f20966, type: 3}
+    size: 10
+  - wave: 3
+    prefab: {fileID: 5409683039508195303, guid: 187b3bc5b07e05d4dad163a745a9fd03, type: 3}
+    size: 10
+  - wave: 4
+    prefab: {fileID: 5409683039508195303, guid: 187b3bc5b07e05d4dad163a745a9fd03, type: 3}
+    size: 20
+  - wave: 4
+    prefab: {fileID: 4156205874225974989, guid: 8450bfb913f2f3c4486d7484b2880c77, type: 3}
+    size: 20
+  - wave: 4
+    prefab: {fileID: 2821599920801535252, guid: f6b9181ecefcbe547afff61b470a6bc2, type: 3}
+    size: 10
+  - wave: 5
+    prefab: {fileID: 5409683039508195303, guid: 187b3bc5b07e05d4dad163a745a9fd03, type: 3}
+    size: 30
+  - wave: 5
+    prefab: {fileID: 7676472388450908011, guid: 3e14938346e83004fb7915f792392a92, type: 3}
+    size: 10
+  - wave: 5
+    prefab: {fileID: 2821599920801535252, guid: f6b9181ecefcbe547afff61b470a6bc2, type: 3}
     size: 10
 --- !u!4 &1951974515
 Transform:

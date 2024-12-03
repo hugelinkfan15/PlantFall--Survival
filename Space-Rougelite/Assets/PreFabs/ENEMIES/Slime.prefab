@@ -47,8 +47,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 325e13d8f014c9440b67d82ce00110ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 30
-  speed: 2
+  maxHealth: 20
+  speed: 1
   damage: 5
   drop: {fileID: 2081028040339549348, guid: 9671c5a54cd4ff74e8a8d79f99bb6350, type: 3}
   spawnWave: 0

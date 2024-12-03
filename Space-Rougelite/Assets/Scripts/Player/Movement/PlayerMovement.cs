@@ -22,8 +22,8 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         speed = PlayerStats.speed * PlayerStats.speedMult;
-        hInput = Input.GetAxis("Horizontal");
-        vInput = Input.GetAxis("Vertical");
+        hInput = Input.GetAxisRaw("Horizontal");
+        vInput = Input.GetAxisRaw("Vertical");
         if ((Input.mousePosition.x - Screen.width / 2) <0)
         {
             gameObject.transform.rotation = Quaternion.Euler(0, 180, 0);
