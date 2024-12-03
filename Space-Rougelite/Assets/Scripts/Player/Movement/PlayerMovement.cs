@@ -21,30 +21,36 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        speed = PlayerStats.speed * PlayerStats.speedMult;
-        hInput = Input.GetAxisRaw("Horizontal");
-        vInput = Input.GetAxisRaw("Vertical");
-        if ((Input.mousePosition.x - Screen.width / 2) <0)
+        if (!PauseMenu.isPaused)
         {
-            gameObject.transform.rotation = Quaternion.Euler(0, 180, 0);
-        }
-        else
-        {
-            
-            gameObject.transform.rotation = Quaternion.identity;
+            speed = PlayerStats.speed * PlayerStats.speedMult;
+            hInput = Input.GetAxisRaw("Horizontal");
+            vInput = Input.GetAxisRaw("Vertical");
+            if ((Input.mousePosition.x - Screen.width / 2) < 0)
+            {
+                gameObject.transform.rotation = Quaternion.Euler(0, 180, 0);
+            }
+            else
+            {
+
+                gameObject.transform.rotation = Quaternion.identity;
+            }
         }
     }
 
     void FixedUpdate()
     {
-        rb.velocity = new Vector2 (hInput, vInput).normalized * speed;
-        if(hInput >= 0.01 || vInput >= 0.01 || hInput <= -0.01f || vInput <= -0.01f)
+        if (!PauseMenu.isPaused)
         {
-            animator.SetFloat("speed", 0.1f);
-        }
-        else
-        {
-            animator.SetFloat("speed", 0.0f);
+            rb.velocity = new Vector2(hInput, vInput).normalized * speed;
+            if (hInput >= 0.01 || vInput >= 0.01 || hInput <= -0.01f || vInput <= -0.01f)
+            {
+                animator.SetFloat("speed", 0.1f);
+            }
+            else
+            {
+                animator.SetFloat("speed", 0.0f);
+            }
         }
         
     }

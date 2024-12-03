@@ -26,14 +26,17 @@ public class RangedEnemy : Enemy
     new void Update()
     {
         base.Update();
-        rCooldown += Time.deltaTime;
-
-        transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
-
-        if(isVisible && attackCD < rCooldown)
+        if (!PauseMenu.isPaused)
         {
-            Fire();
-            rCooldown = 0.0f;
+            rCooldown += Time.deltaTime;
+
+            transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
+
+            if (isVisible && attackCD < rCooldown)
+            {
+                Fire();
+                rCooldown = 0.0f;
+            }
         }
     }
 

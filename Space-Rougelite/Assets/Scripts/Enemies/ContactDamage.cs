@@ -14,7 +14,9 @@ public class ContactDamage : Enemy
     new void Update()
     {
         base.Update();
-
-        transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
+        if (!PauseMenu.isPaused)
+        {
+            transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
+        }
     }
 }

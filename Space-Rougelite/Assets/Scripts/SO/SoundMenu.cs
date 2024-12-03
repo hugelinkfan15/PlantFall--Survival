@@ -11,8 +11,4 @@ public class SoundMenu : ScriptableObject
     public float masterVolume;
     public float sFXVolume;
     public float musicVolume;
-    private void OnDisable()
-    {
-        masterVolume = 1f; sFXVolume= 1f; musicVolume = 1f;
-    }
 }

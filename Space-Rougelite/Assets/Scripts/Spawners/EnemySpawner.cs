@@ -39,14 +39,17 @@ public class EnemySpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        sincelastSpawn += Time.deltaTime;
-        //List<Enemy> currentWave = waveList[wave];
-        spawnSpot = new Vector3((playerLocation.position.x + Mathf.Cos(Random.Range(0f,Mathf.PI*2)) * spawnRadius), (playerLocation.position.y + Mathf.Sin(Random.Range(0f,Mathf.PI*2)) * spawnRadius));
-        if(!ObjectPooler.Instance.IsQueueEmpty(wave) && currentEnemies < maxEnemies && sincelastSpawn>spawnCD)
+        if (!PauseMenu.isPaused)
         {
-            sincelastSpawn = 0.0f;
-            ++currentEnemies;
-            ObjectPooler.Instance.SpawnFromPool(wave, spawnSpot,Quaternion.identity).gameObject.GetComponent<Enemy>().SetWave(wave);
+            sincelastSpawn += Time.deltaTime;
+            //List<Enemy> currentWave = waveList[wave];
+            spawnSpot = new Vector3((playerLocation.position.x + Mathf.Cos(Random.Range(0f, Mathf.PI * 2)) * spawnRadius), (playerLocation.position.y + Mathf.Sin(Random.Range(0f, Mathf.PI * 2)) * spawnRadius));
+            if (!ObjectPooler.Instance.IsQueueEmpty(wave) && currentEnemies < maxEnemies && sincelastSpawn > spawnCD)
+            {
+                sincelastSpawn = 0.0f;
+                ++currentEnemies;
+                ObjectPooler.Instance.SpawnFromPool(wave, spawnSpot, Quaternion.identity).gameObject.GetComponent<Enemy>().SetWave(wave);
+            }
         }
     }
 

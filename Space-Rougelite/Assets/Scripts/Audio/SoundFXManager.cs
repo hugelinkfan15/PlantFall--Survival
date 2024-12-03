@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using UnityEngine;
 
-public class SoundFXManager : MonoBehaviour
+public class SoundFXManager : Singleton<SoundFXManager>
 {
-    public static SoundFXManager instance;
 
     [SerializeField] private AudioSource soundFXObject;
 

@@ -76,6 +76,7 @@ public class LevelUpManager : MonoBehaviour
         playerLevel++;
         toNextLevel = 10;
         SetOptionText();
+        PauseMenu.Instance.pauseGame();
         Debug.Log("Level up!");
     }
 
