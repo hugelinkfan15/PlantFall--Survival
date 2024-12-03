@@ -15,5 +15,5 @@ MonoBehaviour:
   stat: Regen
   level: 0
   multiplier: 1
-  maxLevel: 5
+  maxLevel: 10
   description: increase health regen by 1hp/sec

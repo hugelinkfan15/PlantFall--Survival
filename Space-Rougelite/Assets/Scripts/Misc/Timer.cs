@@ -47,7 +47,7 @@ public class Timer : MonoBehaviour
                 SetTimeText();
                 timerText.color = Color.red;
                 enabled = false;
-                GameManager.Instance.gameOver = true;
+                GameManager.Instance.timerDone = true;
             }
 
             SetTimeText();

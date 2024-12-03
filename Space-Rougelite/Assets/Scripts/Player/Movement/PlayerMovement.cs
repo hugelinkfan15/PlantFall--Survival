@@ -37,7 +37,7 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        rb.velocity = new Vector2 (hInput * speed, vInput * speed);
+        rb.velocity = new Vector2 (hInput, vInput).normalized * speed;
         if(hInput >= 0.01 || vInput >= 0.01 || hInput <= -0.01f || vInput <= -0.01f)
         {
             animator.SetFloat("speed", 0.1f);

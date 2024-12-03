@@ -76,4 +76,9 @@ public class ObjectPooler : MonoBehaviour
     {
         
     }
+
+    public bool IsQueueEmpty(int wave)
+    {
+        return poolDictionary[wave].Count == 0;
+    }
 }

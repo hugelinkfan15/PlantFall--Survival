@@ -42,7 +42,7 @@ public class EnemySpawner : MonoBehaviour
         sincelastSpawn += Time.deltaTime;
         //List<Enemy> currentWave = waveList[wave];
         spawnSpot = new Vector3((playerLocation.position.x + Mathf.Cos(Random.Range(0f,Mathf.PI*2)) * spawnRadius), (playerLocation.position.y + Mathf.Sin(Random.Range(0f,Mathf.PI*2)) * spawnRadius));
-        if(currentEnemies < maxEnemies && sincelastSpawn>spawnCD)
+        if(!ObjectPooler.Instance.IsQueueEmpty(wave) && currentEnemies < maxEnemies && sincelastSpawn>spawnCD)
         {
             sincelastSpawn = 0.0f;
             ++currentEnemies;
@@ -65,7 +65,7 @@ public class EnemySpawner : MonoBehaviour
     /// <returns></returns>
     IEnumerator WaveIncrease()
     {
-        while (wave < 10)
+        while (wave < 11)
         {
             yield return new WaitForSeconds(60f);
 

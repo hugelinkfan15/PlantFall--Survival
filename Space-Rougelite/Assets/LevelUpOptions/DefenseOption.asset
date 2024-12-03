@@ -15,5 +15,5 @@ MonoBehaviour:
   stat: Defense
   level: 0
   multiplier: 0.12
-  maxLevel: 5
+  maxLevel: 10
   description: ' Reduces damage taken by 12%'

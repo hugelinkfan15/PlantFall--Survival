@@ -15,5 +15,5 @@ MonoBehaviour:
   stat: Attack Speed
   level: 0
   multiplier: -0.05
-  maxLevel: 5
+  maxLevel: 10
   description: Decreases attack cooldown by 5%

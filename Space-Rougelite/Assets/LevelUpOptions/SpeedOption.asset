@@ -15,5 +15,5 @@ MonoBehaviour:
   stat: Speed
   level: 0
   multiplier: 0.05
-  maxLevel: 6
+  maxLevel: 10
   description: Increases movement speed by 5%
