@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stat: Range
   level: 0
-  multiplier: 0.2
-  maxLevel: 8
-  description: Increase Range by 20%
+  multiplier: 0.1
+  maxLevel: 5
+  description: Increase Range by 10%
