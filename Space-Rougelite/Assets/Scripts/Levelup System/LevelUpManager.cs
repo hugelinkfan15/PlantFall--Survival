@@ -42,9 +42,6 @@ public class LevelUpManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-    }
-    private void OnLevelWasLoaded()
-    {
         useable = new List<LevelUpOption>(options);
         foreach (LevelUpOption option in useable)
         {

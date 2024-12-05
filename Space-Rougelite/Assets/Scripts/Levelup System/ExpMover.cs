@@ -26,4 +26,14 @@ public class ExpMover : MonoBehaviour
         touched = true;
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.transform == target)
+        {
+            LevelUpManager.exp += value;
+            Destroy(gameObject);
+        }
+
+    }
+
 }
