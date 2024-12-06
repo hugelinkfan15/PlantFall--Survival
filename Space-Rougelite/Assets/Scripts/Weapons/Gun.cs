@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
 
-public class SingleFireGun : Weapon
+public class Gun : Weapon
 {
     [SerializeField] protected GameObject bullet;
     public BaseSingleFire modifiedFire;
