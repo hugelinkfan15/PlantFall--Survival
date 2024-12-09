@@ -65342,6 +65342,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6679477576725183730, guid: b835aac74e920f247871c51872de14f3, type: 3}
   m_PrefabInstance: {fileID: 6679477574856216128}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &1939485363 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 6679477576725183735, guid: b835aac74e920f247871c51872de14f3, type: 3}
+  m_PrefabInstance: {fileID: 6679477574856216128}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1951974513
 GameObject:
   m_ObjectHideFlags: 0
@@ -65680,6 +65685,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6679477576725183734, guid: b835aac74e920f247871c51872de14f3, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 1939485363}
     - target: {fileID: 6679477576725183734, guid: b835aac74e920f247871c51872de14f3, type: 3}
       propertyPath: healthBar
       value: 

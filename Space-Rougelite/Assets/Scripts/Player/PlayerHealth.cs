@@ -15,6 +15,7 @@ public class PlayerHealth : MonoBehaviour
     public float healing;
     public float defense;
     public DisplayBar healthBar;
+    public Animator animator;
 
     private bool isHealing;
 
@@ -77,8 +78,8 @@ public class PlayerHealth : MonoBehaviour
 
     private void Die()
     {
-        gameObject.SetActive(false);
-        GameManager.Instance.gameOver = true;
+        StartCoroutine(HandleDeath());
+        
     }
 
     /// <summary>
@@ -107,4 +108,19 @@ public class PlayerHealth : MonoBehaviour
             Destroy(collision.gameObject);
         }
     }*/
+
+    IEnumerator PlayerDeath()
+    {
+        Debug.Log("PlayerDead = True");
+        animator.SetBool("PlayerDead", true);
+        yield return new WaitForSeconds(2);
+        animator.SetBool("PlayerDead", false);
+    }
+
+    IEnumerator HandleDeath()
+    {
+        yield return StartCoroutine(PlayerDeath());
+        gameObject.SetActive(false);
+        GameManager.Instance.gameOver = true;
+    }
 }
