@@ -18,10 +18,13 @@ public abstract class Enemy : MonoBehaviour
     [SerializeField] protected int spawnWave;
     protected static float contactCD = 0.2f;
 
+    private Animator animator;
+
     protected float cooldown;
     // Start is called before the first frame update
     public void Start()
     {
+        animator = GetComponent<Animator>();
         health = maxHealth;
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         cooldown = contactCD;
@@ -73,12 +76,7 @@ public abstract class Enemy : MonoBehaviour
     /// </summary>
     public void Die()
     {
-        Drop();
-        ObjectPooler.Instance.poolDictionary[spawnWave].Enqueue(gameObject);
-        -- EnemySpawner.Instance.currentEnemies;
-        health = maxHealth;
-        StopAllCoroutines();
-        gameObject.SetActive(false);
+        StartCoroutine(HandleDeath());
     }
 
     /// <summary>
@@ -132,5 +130,21 @@ public abstract class Enemy : MonoBehaviour
         EnemySpawner.Instance.Respawn(gameObject);
     }
 
+    IEnumerator EnemyDeathAnim()
+    {
+        animator.SetBool("EnemyDeath", true);
+        yield return new WaitForSeconds(0.45f);
+        
+        
+    }
+    private IEnumerator HandleDeath()
+    {
+        yield return StartCoroutine(EnemyDeathAnim()); // Wait for the animation coroutine
+        Drop(); // Drop the item after animation
+        ObjectPooler.Instance.poolDictionary[spawnWave].Enqueue(gameObject); // Re-enqueue to object pool
+        --EnemySpawner.Instance.currentEnemies; // Decrement enemy count
+        health = maxHealth; // Reset health
+        gameObject.SetActive(false); // Deactivate the enemy
+    }
 
 }

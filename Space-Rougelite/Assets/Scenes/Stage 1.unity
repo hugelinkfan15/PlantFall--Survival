@@ -65380,7 +65380,7 @@ MonoBehaviour:
   pools:
   - wave: 1
     prefab: {fileID: 4156205874225974989, guid: 8450bfb913f2f3c4486d7484b2880c77, type: 3}
-    size: 20
+    size: 10
   - wave: 2
     prefab: {fileID: 4156205874225974989, guid: 8450bfb913f2f3c4486d7484b2880c77, type: 3}
     size: 20
