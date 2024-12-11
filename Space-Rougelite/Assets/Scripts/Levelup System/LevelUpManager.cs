@@ -191,6 +191,8 @@ public class LevelUpManager : MonoBehaviour
     private void SpawnLevelUpParticles()
     {
         levelUpParticlesInstance = Instantiate(levelUpParticles, player.transform.position, Quaternion.identity);
+        Destroy(levelUpParticlesInstance.gameObject, levelUpParticles.main.duration + levelUpParticles.main.startLifetime.constantMax);
+
     }
 
     private IEnumerator LevelUpSequence()
