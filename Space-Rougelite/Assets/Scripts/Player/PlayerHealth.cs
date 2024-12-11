@@ -113,7 +113,7 @@ public class PlayerHealth : MonoBehaviour
     {
         Debug.Log("PlayerDead = True");
         animator.SetBool("PlayerDead", true);
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1.6f);
         animator.SetBool("PlayerDead", false);
     }
 
