@@ -15,6 +15,12 @@ public class LevelUpManager : MonoBehaviour
     public static int exp = 0;
     public static int toNextLevel = 5;
     public static int totalExp;
+    public GameObject player;
+    private bool isLevelingUp = false; // Tracks whether the player is mid-level-up
+
+
+    [SerializeField] private ParticleSystem levelUpParticles;
+    private ParticleSystem levelUpParticlesInstance;
 
     [Header("Option Text Boxes")]
     [SerializeField] private TextMeshProUGUI Option1;
@@ -60,7 +66,7 @@ public class LevelUpManager : MonoBehaviour
     {
         expBar.SetValue(exp);
 
-        if (!PauseMenu.isPaused && exp >= toNextLevel)
+        if (!PauseMenu.isPaused && exp >= toNextLevel && !isLevelingUp)
         {
             LevelUp();
         }
@@ -71,15 +77,8 @@ public class LevelUpManager : MonoBehaviour
     /// </summary>
     public void LevelUp()
     {
-        getOptions();
-        LevelupMenu.SetActive(true);
-        totalExp += exp;
-        exp-=toNextLevel;
-        playerLevel++;
-        toNextLevel += 5;
-        SetOptionText();
-        PauseMenu.Instance.pauseGame();
-        Debug.Log("Level up!");
+        isLevelingUp = true;
+        StartCoroutine(LevelUpSequence());
     }
 
     //For Buttons to use
@@ -188,4 +187,27 @@ public class LevelUpManager : MonoBehaviour
         Option2.text = currentOption2.description;
         Option3.text = currentOption3.description;
     }
+
+    private void SpawnLevelUpParticles()
+    {
+        levelUpParticlesInstance = Instantiate(levelUpParticles, player.transform.position, Quaternion.identity);
+    }
+
+    private IEnumerator LevelUpSequence()
+    {
+        SpawnLevelUpParticles();
+        yield return new WaitForSeconds(levelUpParticles.main.duration);
+        getOptions();
+        LevelupMenu.SetActive(true);
+        totalExp += exp;
+        exp -= toNextLevel;
+        playerLevel++;
+        toNextLevel += 5;
+        SetOptionText();
+        PauseMenu.Instance.pauseGame();
+        Debug.Log("Level up!");
+        isLevelingUp = false;
+    }
+
+
 }
