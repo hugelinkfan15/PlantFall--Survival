@@ -6,7 +6,14 @@ public abstract class BulletModifier : Upgrade
 {
     public override void DoUpgrade()
     {
-        PlayerStats.modifiers.Add(this);
+        if (tier == 0)
+        {
+            PlayerStats.modifiers.Add(this);
+        }
+        else
+        {
+            tier++;
+        }
     }
 
     public override void OnReset()
