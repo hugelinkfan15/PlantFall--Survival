@@ -9,10 +9,14 @@ public class TargetIndicator : MonoBehaviour
     // Start is called before the first frame update
     void Update()
     {
-        var dir = Target.position - transform.position;
+        if (gameObject.activeSelf)
+        {
+            var dir = Target.position - transform.position;
 
-        var angle = Mathf.Atan2(dir.y,dir.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.AngleAxis(angle,Vector3.forward);
+            var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        }
+
     }
 
 

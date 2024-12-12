@@ -13,7 +13,7 @@ public class FireBullets : BulletModifier
         while(enemy.gameObject.activeSelf && seconds<effectLength)
         {
             yield return new WaitForSeconds(0.1f);
-            enemy.TakeDamage(fireDamage / 10);
+            enemy.TakeDamage((fireDamage*tier) / 10);
             seconds += 0.1f;
         }
     }

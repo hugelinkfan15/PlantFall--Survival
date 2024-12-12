@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be83ceb7f397f244d8d36eb0cc76c956, type: 3}
+  m_Name: PoisonUpgrade
+  m_EditorClassIdentifier: 
+  upgradeName: Toxic Sludge
+  description: Bullets deal posion damage for 8 seconds
+  tier: 0
+  maxTier: 3
+  poisonDamage: 4
+  effectLength: 8

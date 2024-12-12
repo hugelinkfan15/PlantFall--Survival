@@ -53,13 +53,13 @@ public class PlayerStats : ScriptableObject
 
     public void Display()
     {
-        statsBox.text = "Damage: " + damage + " * " + damageMult +
-                        "\nDefense: " + defense + " * " + defenseMult +
-                        "\nHealth: " + maxHealth + " * " + healthMult +
-                        "\nHealth Regen: " + healthRegen + " * " + regenMulti +
-                        "\nAttack Speed:" + attackSpeed + " * " + attackSpeedMult +
-                        "\nRange: " + range + " * " + rangeMult +
-                        "\nSpeed: " + speed + " * " + speedMult +
+        statsBox.text = "Damage: " + (damage * damageMult) +"(mult: " + damageMult + ")" +
+                        "\nDefense: " + (defense * defenseMult) + "(mult: " + defenseMult + ")" +
+                        "\nHealth: " + (maxHealth * healthMult) + "(mult: " + healthMult + ")" +
+                        "\nHealth Regen: " + (healthRegen * regenMulti) + "(mult: " +regenMulti + ")" +
+                        "\nAttack Speed:" + (attackSpeed * attackSpeedMult) + "(mult: " + attackSpeedMult + ")" +
+                        "\nRange: " + (range * rangeMult) + "(mult: " + rangeMult + ")" +
+                        "\nSpeed: " + (speed * speedMult) + "(mult: " + speedMult + ")" +
                         "\nProjectiles: " + projectileNumber +
                         "\nBullet Modifiers: ";
         foreach (BulletModifier modifier in modifiers)
@@ -69,8 +69,29 @@ public class PlayerStats : ScriptableObject
 
     }
 
-    public void ClearModifiers()
+    /// <summary>
+    /// Clears bullet modifiers
+    /// </summary>
+    public static void ClearModifiers()
     {
         modifiers.Clear();
+    }
+
+    /// <summary>
+    /// Resets stat multipliers when called (usually on level load)
+    /// </summary>
+    public static void OnReset()
+    {
+        damageMult = 1.0f;
+        speedMult = 1.0f;
+        defenseMult = 1.0f;
+        healthMult = 1.0f;
+        rangeMult = 1.0f;
+        bulletSpeedMult = 1.0f;
+        attackSpeedMult = 1.0f;
+        rangeMult = 1.0f;
+        projectileNumber = 1;
+        pierce = 1;
+        ClearModifiers();
     }
 }

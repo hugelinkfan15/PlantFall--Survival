@@ -54,6 +54,7 @@ public class LevelUpManager : MonoBehaviour
         {
             option.OnReset();
         }
+        PlayerStats.OnReset();
         playerLevel = 1;
         toNextLevel = 5;
         exp = 0;

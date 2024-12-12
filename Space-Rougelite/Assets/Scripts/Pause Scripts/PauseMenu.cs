@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class PauseMenu : Singleton<PauseMenu>
@@ -8,10 +9,13 @@ public class PauseMenu : Singleton<PauseMenu>
 
     public PlayerStats stats;
     public GameObject menu;
+    public TextMeshProUGUI statsText;
     public static bool isPaused;
 
     void Start()
     {
+        stats.statsBox = statsText;
+        stats.Display();
         menu.SetActive(false);
         
         isPaused = false;
@@ -31,9 +35,9 @@ public class PauseMenu : Singleton<PauseMenu>
             }
             else
             {
-                pauseGame();
                 menu.SetActive(true);
                 stats.Display();
+                pauseGame();
             }
         }
     }
