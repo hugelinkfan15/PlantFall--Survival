@@ -23,7 +23,7 @@ public class DialogManager : MonoBehaviour
         index = 0; // Ensure index starts at 0 when the dialog is enabled
         continueButton.SetActive(false);
         StartCoroutine(Type());
-        Time.timeScale = 0;
+        
     }
 
     IEnumerator Type()
@@ -51,14 +51,14 @@ public class DialogManager : MonoBehaviour
             // Final dialog reached
             textbox.text = "";
             dialogPanel.SetActive(false);
-            Time.timeScale = 1f;
+           
 
             // Load the next scene
-            //LoadNextScene();
+            LoadNextScene();
         }
     }
 
-    /*void LoadNextScene()
+    void LoadNextScene()
     {
         // Option 1: Using the scene name specified in the Inspector
         if (!string.IsNullOrEmpty(nextSceneName))
@@ -71,5 +71,5 @@ public class DialogManager : MonoBehaviour
             int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
             SceneManager.LoadScene(currentSceneIndex + 1);
         }
-    } */
+    } 
 }
