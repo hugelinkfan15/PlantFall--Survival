@@ -15,6 +15,6 @@ MonoBehaviour:
   upgradeName: Molten Bullets
   description: Enemies take fire damage for 5 seconds
   tier: 0
-  maxTier: 1
+  maxTier: 3
   fireDamage: 5
   effectLength: 5
