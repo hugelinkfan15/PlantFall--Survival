@@ -60,13 +60,17 @@ public class PlayerStats : ScriptableObject
                         "\nAttack Speed:" + attackSpeed + " * " + attackSpeedMult +
                         "\nRange: " + range + " * " + rangeMult +
                         "\nSpeed: " + speed + " * " + speedMult +
-                        "\nProjectiles: " + projectileNumber;
+                        "\nProjectiles: " + projectileNumber +
+                        "\nBullet Modifiers: ";
+        foreach (BulletModifier modifier in modifiers)
+        {
+            statsBox.text += modifier.upgradeName + ", ";
+        }
+
     }
 
     public void ClearModifiers()
     {
         modifiers.Clear();
     }
-
-
 }

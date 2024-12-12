@@ -1361,7 +1361,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0248ee06e273ac942b139ab9aa78863e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  manager: {fileID: 231985044}
+  manager: {fileID: 0}
 --- !u!1 &335699519
 GameObject:
   m_ObjectHideFlags: 0
@@ -60892,7 +60892,7 @@ MonoBehaviour:
   maxX: 50
   minY: -25
   maxY: 20
-  countdown: 5
+  countdown: 3
 --- !u!1 &644654357
 GameObject:
   m_ObjectHideFlags: 0
@@ -62417,6 +62417,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 17262410}
   levelUpParticles: {fileID: 605877491012165774, guid: 40dd5faefce0e17469b48cf1b958882e, type: 3}
+  levelupSFX: {fileID: 8300000, guid: 4e75f8f4a581cc548a1b6832783e41a5, type: 3}
   Option1: {fileID: 1022879415}
   Option2: {fileID: 1462689352}
   Option3: {fileID: 1802782380}
@@ -66910,6 +66911,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6679477574831010440, guid: b835aac74e920f247871c51872de14f3, type: 3}
+      propertyPath: fireSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: b83ca20827ca370408202926f80b6ee6, type: 3}
     - target: {fileID: 6679477575671337184, guid: b835aac74e920f247871c51872de14f3, type: 3}
       propertyPath: m_Camera
       value: 

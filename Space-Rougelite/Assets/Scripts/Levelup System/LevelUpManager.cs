@@ -21,6 +21,7 @@ public class LevelUpManager : MonoBehaviour
 
     [SerializeField] private ParticleSystem levelUpParticles;
     private ParticleSystem levelUpParticlesInstance;
+    public AudioClip levelupSFX;
 
     [Header("Option Text Boxes")]
     [SerializeField] private TextMeshProUGUI Option1;
@@ -78,6 +79,7 @@ public class LevelUpManager : MonoBehaviour
     public void LevelUp()
     {
         isLevelingUp = true;
+        SoundFXManager.instance.PlaySoundFXCLip(levelupSFX, transform, 1f);
         StartCoroutine(LevelUpSequence());
     }
 

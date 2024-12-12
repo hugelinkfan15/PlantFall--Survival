@@ -21,7 +21,7 @@ public class Timer : MonoBehaviour
     public TimerFormats format;
     private Dictionary<TimerFormats,string> timeFormats = new Dictionary<TimerFormats,string>();
 
-    private long minutes = 0;
+    private float minutes = 0;
     private  float seconds = 0;
     
     void Start()
@@ -38,8 +38,8 @@ public class Timer : MonoBehaviour
         //if (!PauseMenu.isPaused)
         //{
             currentTime = countDown ? currentTime -= Time.deltaTime : currentTime += Time.deltaTime;
-            seconds = currentTime%60;
-            minutes = (int)currentTime/60;
+            seconds = Mathf.Floor(currentTime%60);
+            minutes = Mathf.Ceil(currentTime/60)-1;
 
             if (hasLimit && ((countDown && currentTime <= timerLimit)||(!countDown && currentTime >= timerLimit)))
             {
@@ -65,7 +65,7 @@ public class Timer : MonoBehaviour
         return timerText.text;
     }
 
-    public long GetMinutes()
+    public float GetMinutes()
     {
         return minutes;
     }

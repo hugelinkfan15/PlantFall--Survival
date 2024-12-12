@@ -6,6 +6,7 @@ using static UnityEditor.PlayerSettings;
 
 public class Gun : Weapon
 {
+    public AudioClip fireSFX;
     [SerializeField] protected GameObject bullet;
     //public Transform launchOffset;
 
@@ -40,5 +41,6 @@ public class Gun : Weapon
         mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         direction = (mousePosition - new Vector2(transform.position.x, transform.position.y)).normalized;
         Instantiate(bullet, transform.position, transform.rotation).gameObject.GetComponent<Rigidbody2D>().velocity = direction * PlayerStats.bulletSpeed * PlayerStats.bulletSpeedMult;
+        SoundFXManager.instance.PlaySoundFXCLip(fireSFX, transform,1f);
     }
 }
