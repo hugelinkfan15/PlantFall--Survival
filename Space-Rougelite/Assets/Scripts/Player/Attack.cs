@@ -14,6 +14,8 @@ public class Attack : MonoBehaviour
     public float bulletSpeed;
     public float range;
 
+    public int numProjectiles;
+
     public bool auto;
     // Start is called before the first frame update
     void Start()
@@ -24,6 +26,7 @@ public class Attack : MonoBehaviour
         PlayerStats.bulletSpeed = bulletSpeed;
         PlayerStats.range = range;
         PlayerStats.attackSpeed = attackSpeed;
+        PlayerStats.projectileNumber = numProjectiles;
     }
 
     // Update is called once per frame
@@ -33,19 +36,19 @@ public class Attack : MonoBehaviour
         bulletSpeed = PlayerStats.bulletSpeed * PlayerStats.bulletSpeedMult; 
         attackSpeed = PlayerStats.attackSpeed * PlayerStats.attackSpeedMult;
         range = PlayerStats.range * PlayerStats.rangeMult;
-
+        numProjectiles = PlayerStats.projectileNumber;
         cooldown += Time.deltaTime;
 
         if(attackSpeed < cooldown)
         {
             if (auto)
             {
-                DoAttack();
+                StartCoroutine(DoAttack());
                 cooldown = 0.0f;
             }
             else if (Input.GetKeyDown(KeyCode.Mouse0))
             {
-                DoAttack();
+                StartCoroutine(DoAttack());
                 cooldown = 0.0f;
             }
         }
@@ -54,9 +57,15 @@ public class Attack : MonoBehaviour
     /// <summary>
     /// Calls Fire function from equipped weapon
     /// </summary>
-    private void DoAttack()
+    IEnumerator DoAttack()
     {
-        weapon.GetComponent<Gun>().Fire(damage, range, bulletSpeed);
-        Debug.Log("attack");
+        int shots = 0;
+        while (shots < numProjectiles)
+        {
+            yield return new WaitForSeconds(0.2f);
+            weapon.GetComponent<Gun>().Fire(damage, range, bulletSpeed);
+            Debug.Log("attack");
+            shots++;
+        }
     }
 }

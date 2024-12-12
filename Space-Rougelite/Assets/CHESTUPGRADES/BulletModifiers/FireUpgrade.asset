@@ -9,7 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a529a313004e96542ab0defa1476d687, type: 3}
-  m_Name: Stats
+  m_Script: {fileID: 11500000, guid: 5345390e66f5fd44abe5dd5523e02e27, type: 3}
+  m_Name: FireUpgrade
   m_EditorClassIdentifier: 
-  statsBox: {fileID: 0}
+  upgradeName: Molten Bullets
+  description: Enemies take fire damage for 5 seconds
+  tier: 0
+  maxTier: 1
+  fireDamage: 5
+  effectLength: 5

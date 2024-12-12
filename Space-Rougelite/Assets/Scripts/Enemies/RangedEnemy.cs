@@ -14,11 +14,13 @@ public class RangedEnemy : Enemy
 
     private bool isVisible;
     private float rCooldown;
+    private bool isAttacking;
     // Start is called before the first frame update
     new void Start()
     {
         base.Start();
         isVisible = false;
+        isAttacking = false;
         rCooldown = attackCD;
     }
 
@@ -28,13 +30,15 @@ public class RangedEnemy : Enemy
         base.Update();
         if (!PauseMenu.isPaused)
         {
-            rCooldown += Time.deltaTime;
-
-            transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
+            if (!isAttacking)
+            {
+                rCooldown += Time.deltaTime;
+                transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
+            }
 
             if (isVisible && attackCD < rCooldown)
             {
-                Fire();
+                StartCoroutine(Fire());
                 rCooldown = 0.0f;
             }
         }
@@ -43,14 +47,6 @@ public class RangedEnemy : Enemy
     /// <summary>
     /// Shoots in direction of player
     /// </summary>
-    protected void Fire()
-    {
-
-        float angle = -Mathf.Atan2(player.position.x, player.position.y) * Mathf.Rad2Deg;
-
-        Vector2 direction = new Vector2(player.position.x-transform.position.x, player.position.y-transform.position.y).normalized;
-        Instantiate(projectile,transform.position,Quaternion.Euler(0,0,-angle) ).gameObject.GetComponent<Rigidbody2D>().velocity = direction * projectileSpeed;
-    }
 
     protected new void OnBecameInvisible()
     {
@@ -62,6 +58,18 @@ public class RangedEnemy : Enemy
     {
         base.OnBecameVisible();
         isVisible = true;
+    }
+
+    IEnumerator Fire()
+    {
+        isAttacking = true;
+        yield return new WaitForSeconds(1.0f);
+        float angle = -Mathf.Atan2(player.position.x, player.position.y) * Mathf.Rad2Deg;
+
+        Vector2 direction = new Vector2(player.position.x - transform.position.x, player.position.y - transform.position.y).normalized;
+        Instantiate(projectile, transform.position, Quaternion.Euler(0, 0, angle)).gameObject.GetComponent<Rigidbody2D>().velocity = direction * projectileSpeed;
+        yield return new WaitForSeconds(0.5f);
+        isAttacking = false;
     }
 
 

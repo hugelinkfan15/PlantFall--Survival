@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,11 +12,14 @@ public class Bullet : MonoBehaviour
     public float speed;
     public float damage;
     public float range;
+    public int pierce;
     //public Transform direction;
 
     protected Rigidbody2D rb;
     private float distanceTravelled;
     private Vector3 prev;
+
+    public List<BulletModifier > modifiers;
 
     protected void Start()
     {
@@ -63,6 +67,10 @@ public class Bullet : MonoBehaviour
         if(collision.gameObject.GetComponent<Enemy>() != null)
         {
             collision.gameObject.GetComponent<Enemy>().TakeDamage(damage);
+            foreach (BulletModifier modi in modifiers)
+            {
+                StartCoroutine(modi.GiveEffect(collision.gameObject.GetComponent<Enemy>()));
+            }
             Destroy(gameObject);
         }
     }

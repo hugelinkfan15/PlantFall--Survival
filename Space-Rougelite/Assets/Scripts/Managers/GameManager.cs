@@ -19,12 +19,6 @@ public class GameManager : Singleton<GameManager>
         gameOverText.color = Color.white;
     }
 
-    private void OnLevelWasLoaded()
-    {
-        timerDone = false;
-        gameOverText.color = Color.white;
-    }
-
     // Update is called once per frame
     void Update()
     {

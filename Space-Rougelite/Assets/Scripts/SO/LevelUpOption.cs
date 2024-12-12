@@ -15,10 +15,12 @@ public class LevelUpOption : ScriptableObject
 
     public string description;
 
+    public PlayerStats stats;
+
 
     private void Start()
     {
-
+        stats = GameObject.FindObjectOfType<PlayerStats>();
     }
 
     /// <summary>
@@ -26,37 +28,7 @@ public class LevelUpOption : ScriptableObject
     /// </summary>
     public void GiveBonus()
     {
-        switch (stat.ToLower())
-        {
-            case "damage":
-                PlayerStats.damageMult += multiplier;
-                break;
-            case "speed":
-                PlayerStats.speedMult += multiplier; 
-                break;
-            case "health":
-                PlayerStats.healthMult += multiplier;
-                break;
-            case "defense":
-                PlayerStats.defenseMult += multiplier;
-                break;
-            case "regen":
-                PlayerStats.regenMulti += multiplier;
-                break;
-            case "attack speed":
-                PlayerStats.attackSpeedMult += multiplier;
-                break;
-            case "bullet speed":
-                PlayerStats.bulletSpeedMult += multiplier;
-                break;
-            case "range":
-                PlayerStats.rangeMult += multiplier;
-                break;
-            default:
-                break;
-        }
 
-        level++;
     }
 
     public void OnReset()

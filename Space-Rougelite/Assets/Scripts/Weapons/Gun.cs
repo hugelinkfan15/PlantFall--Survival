@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
+using static UnityEditor.PlayerSettings;
 
 public class Gun : Weapon
 {
     [SerializeField] protected GameObject bullet;
-    public BaseSingleFire modifiedFire;
     //public Transform launchOffset;
 
     private Vector2 mousePosition;
@@ -39,7 +39,6 @@ public class Gun : Weapon
 
         mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         direction = (mousePosition - new Vector2(transform.position.x, transform.position.y)).normalized;
-        modifiedFire.Fire(bullet, transform.position, transform.rotation, direction);
-        //Instantiate(bullet, transform.position, transform.rotation).gameObject.GetComponent<Rigidbody2D>().velocity = direction * PlayerStats.bulletSpeed * PlayerStats.bulletSpeedMult;
+        Instantiate(bullet, transform.position, transform.rotation).gameObject.GetComponent<Rigidbody2D>().velocity = direction * PlayerStats.bulletSpeed * PlayerStats.bulletSpeedMult;
     }
 }

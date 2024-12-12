@@ -6,12 +6,14 @@ public class PauseMenu : Singleton<PauseMenu>
 {
     // Start is called before the first frame update
 
+    public PlayerStats stats;
     public GameObject menu;
     public static bool isPaused;
 
     void Start()
     {
         menu.SetActive(false);
+        
         isPaused = false;
         Time.timeScale = 1;
         AudioListener.pause = false;
@@ -31,6 +33,7 @@ public class PauseMenu : Singleton<PauseMenu>
             {
                 pauseGame();
                 menu.SetActive(true);
+                stats.Display();
             }
         }
     }
