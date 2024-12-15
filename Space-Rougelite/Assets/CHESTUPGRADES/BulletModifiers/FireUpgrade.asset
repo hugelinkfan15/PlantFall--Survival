@@ -16,5 +16,5 @@ MonoBehaviour:
   description: Enemies take fire damage for 5 seconds
   tier: 0
   maxTier: 3
-  fireDamage: 5
+  fireDamage: 3
   effectLength: 5

@@ -15,6 +15,7 @@ public class Attack : MonoBehaviour
     public float range;
 
     public int numProjectiles;
+    public int pierce;
 
     public bool auto;
     // Start is called before the first frame update
@@ -27,6 +28,7 @@ public class Attack : MonoBehaviour
         PlayerStats.range = range;
         PlayerStats.attackSpeed = attackSpeed;
         PlayerStats.projectileNumber = numProjectiles;
+        PlayerStats.pierce = pierce;
     }
 
     // Update is called once per frame
@@ -38,6 +40,7 @@ public class Attack : MonoBehaviour
         range = PlayerStats.range * PlayerStats.rangeMult;
         numProjectiles = PlayerStats.projectileNumber;
         cooldown += Time.deltaTime;
+        pierce = PlayerStats.pierce;
 
         if(attackSpeed < cooldown)
         {

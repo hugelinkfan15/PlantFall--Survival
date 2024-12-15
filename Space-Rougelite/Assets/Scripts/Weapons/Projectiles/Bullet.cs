@@ -13,6 +13,7 @@ public class Bullet : MonoBehaviour
     public float damage;
     public float range;
     public int pierce;
+    private int enemiesHit;
     //public Transform direction;
 
     protected Rigidbody2D rb;
@@ -51,6 +52,7 @@ public class Bullet : MonoBehaviour
     {
         damage = PlayerStats.damage * PlayerStats.damageMult;
         range = PlayerStats.range * PlayerStats.rangeMult;
+        pierce = PlayerStats.pierce;
         distanceTravelled += Vector3.Distance(transform.position, prev);
         if (distanceTravelled > range)
         {
@@ -66,12 +68,16 @@ public class Bullet : MonoBehaviour
     {
         if(collision.gameObject.GetComponent<Enemy>() != null)
         {
-            collision.gameObject.GetComponent<Enemy>().TakeDamage(damage);
-            foreach (BulletModifier modi in modifiers)
+            if (enemiesHit < pierce)
             {
-                StartCoroutine(modi.GiveEffect(collision.gameObject.GetComponent<Enemy>()));
+                enemiesHit++;
+                collision.gameObject.GetComponent<Enemy>().TakeDamage(damage);
+                foreach (BulletModifier modi in modifiers)
+                {
+                    StartCoroutine(modi.GiveEffect(collision.gameObject.GetComponent<Enemy>()));
+                }
+                Destroy(gameObject);
             }
-            Destroy(gameObject);
         }
     }
 }

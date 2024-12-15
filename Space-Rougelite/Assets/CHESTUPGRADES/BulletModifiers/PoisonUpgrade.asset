@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: PoisonUpgrade
   m_EditorClassIdentifier: 
   upgradeName: Toxic Sludge
-  description: Bullets deal posion damage for 8 seconds
+  description: Bullets deal posion damage for 8 seconds and slows down enemies
   tier: 0
   maxTier: 3
-  poisonDamage: 4
+  poisonDamage: 1
   effectLength: 8

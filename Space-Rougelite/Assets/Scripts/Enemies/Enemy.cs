@@ -16,11 +16,12 @@ public abstract class Enemy : MonoBehaviour
     protected Transform player;
    
     [SerializeField] protected int spawnWave;
-    protected static float contactCD = 0.2f;
+    protected static float contactCD = 0.3f;
 
     private Animator animator;
 
     protected float cooldown;
+
     // Start is called before the first frame update
     public void Start()
     {
@@ -105,6 +106,11 @@ public abstract class Enemy : MonoBehaviour
         }
     }
 
+    protected void OnEnable()
+    {
+        gameObject.GetComponent<Collider2D>().enabled = true;
+    }
+
     protected void OnBecameInvisible()
     {
         if (gameObject.activeInHierarchy)
@@ -115,7 +121,7 @@ public abstract class Enemy : MonoBehaviour
 
     protected void OnBecameVisible()
     {
-        StopAllCoroutines();
+        StopCoroutine(RespawnOnScreen());
     }
 
 
@@ -139,12 +145,14 @@ public abstract class Enemy : MonoBehaviour
     }
     private IEnumerator HandleDeath()
     {
+        gameObject.GetComponent<Collider2D>().enabled = false;
         yield return StartCoroutine(EnemyDeathAnim()); // Wait for the animation coroutine
         Drop(); // Drop the item after animation
+        StopAllCoroutines();
         ObjectPooler.Instance.poolDictionary[spawnWave].Enqueue(gameObject); // Re-enqueue to object pool
         --EnemySpawner.Instance.currentEnemies; // Decrement enemy count
         health = maxHealth; // Reset health
-        gameObject.SetActive(false); // Deactivate the enemy
+        gameObject.SetActive(false); // Deactivate the enemy>
     }
 
 }

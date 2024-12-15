@@ -61,6 +61,7 @@ public class PlayerStats : ScriptableObject
                         "\nRange: " + (range * rangeMult) + "(mult: " + rangeMult + ")" +
                         "\nSpeed: " + (speed * speedMult) + "(mult: " + speedMult + ")" +
                         "\nProjectiles: " + projectileNumber +
+                        "\nPierce: "  + pierce +
                         "\nBullet Modifiers: ";
         foreach (BulletModifier modifier in modifiers)
         {

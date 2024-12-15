@@ -13,7 +13,9 @@ GameObject:
   - component: {fileID: 7676472388450908010}
   - component: {fileID: 7676472388450907991}
   - component: {fileID: -6329747044521514466}
-  m_Layer: 0
+  - component: {fileID: -1303856924980272355}
+  - component: {fileID: 3158783542242931789}
+  m_Layer: 6
   m_Name: SkullMan-Bow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -120,8 +122,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.012379885, y: 0.009903967}
-  m_Size: {x: 0.42061973, y: 0.71278596}
+  m_Offset: {x: -0.10958612, y: 0.009903938}
+  m_Size: {x: 0.3179114, y: 0.6861026}
   m_Direction: 0
 --- !u!95 &-6329747044521514466
 Animator:
@@ -144,3 +146,38 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!50 &-1303856924980272355
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7676472388450908011}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 1
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
+--- !u!114 &3158783542242931789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7676472388450908011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 811976273cb3bad46b0f56854c717e7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisLayer: 6
+  ignoreLayer: 7

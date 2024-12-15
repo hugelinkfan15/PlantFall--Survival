@@ -13,7 +13,9 @@ GameObject:
   - component: {fileID: 2821599920801535253}
   - component: {fileID: 2821599920801535272}
   - component: {fileID: 2074262890992237505}
-  m_Layer: 0
+  - component: {fileID: -2187758552058194307}
+  - component: {fileID: 8028166652581361248}
+  m_Layer: 6
   m_Name: Snow Worm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -144,3 +146,38 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!50 &-2187758552058194307
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2821599920801535252}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 1
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
+--- !u!114 &8028166652581361248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2821599920801535252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 811976273cb3bad46b0f56854c717e7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisLayer: 6
+  ignoreLayer: 7

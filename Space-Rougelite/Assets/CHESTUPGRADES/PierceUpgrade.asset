@@ -9,10 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d3f53f04aff63248bcfa548da75dfcc, type: 3}
-  m_Name: ProjectileUpgrade
+  m_Script: {fileID: 11500000, guid: 8efe64dc1e78df04ba9af91febd791ad, type: 3}
+  m_Name: PierceUpgrade
   m_EditorClassIdentifier: 
-  upgradeName: Overloaded chamber
-  description: Increases number of projectiles by +1
-  tier: 2
-  maxTier: 5
+  upgradeName: Laser-Sharped Rounds
+  description: Increase pierce by +1
+  tier: 0
+  maxTier: 2

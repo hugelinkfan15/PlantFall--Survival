@@ -757,10 +757,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerText: {fileID: 218221756}
-  currentTime: 0
-  countDown: 0
+  currentTime: 600
+  countDown: 1
   hasLimit: 1
-  timerLimit: 600
+  timerLimit: 0
   hasFormat: 1
   format: 0
 --- !u!4 &75813160
@@ -968,7 +968,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &191260218
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1009,14 +1009,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Last 10 minutes!
-
-    Left Click to Shoot!
-
-    WASD to Move!
-
-    P to
-    Pause!'
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -62400,7 +62393,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ConfineMode: 0
   m_BoundingVolume: {fileID: 0}
-  m_BoundingShape2D: {fileID: 0}
+  m_BoundingShape2D: {fileID: 1476066452}
   m_ConfineScreenEdges: 1
   m_Damping: 0
 --- !u!114 &1436428745
@@ -62670,7 +62663,8 @@ GameObject:
   - component: {fileID: 1476066452}
   - component: {fileID: 1476066456}
   - component: {fileID: 1476066455}
-  m_Layer: 0
+  - component: {fileID: 1476066457}
+  m_Layer: 7
   m_Name: Walls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -66196,6 +66190,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1476066457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1476066450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 811976273cb3bad46b0f56854c717e7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisLayer: 7
+  ignoreLayer: 6
 --- !u!1 &1651378196
 GameObject:
   m_ObjectHideFlags: 0
@@ -67209,6 +67217,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6679477576725183731, guid: b835aac74e920f247871c51872de14f3, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6679477576725183733, guid: b835aac74e920f247871c51872de14f3, type: 3}
+      propertyPath: pierce
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6679477576725183733, guid: b835aac74e920f247871c51872de14f3, type: 3}
       propertyPath: numProjectiles
       value: 1
@@ -67226,7 +67242,7 @@ PrefabInstance:
       value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents:
-    - {fileID: 6679477576397532007, guid: b835aac74e920f247871c51872de14f3, type: 3}
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: b835aac74e920f247871c51872de14f3, type: 3}
 --- !u!1 &6679477574856216129 stripped
 GameObject:

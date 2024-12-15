@@ -9,6 +9,7 @@ public abstract class BulletModifier : Upgrade
         if (tier == 0)
         {
             PlayerStats.modifiers.Add(this);
+            tier++;
         }
         else
         {
