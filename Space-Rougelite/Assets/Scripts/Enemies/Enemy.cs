@@ -121,7 +121,7 @@ public abstract class Enemy : MonoBehaviour
 
     protected void OnBecameVisible()
     {
-        StopCoroutine(RespawnOnScreen());
+        StopAllCoroutines();
     }
 
 
